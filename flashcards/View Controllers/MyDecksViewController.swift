@@ -11,6 +11,7 @@ class MyDecksViewController: UIViewController {
 
     @IBOutlet var cardView: CustomView!
     @IBOutlet var blurView: UIVisualEffectView!
+    @IBOutlet var RecentCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

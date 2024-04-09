@@ -194,7 +194,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="F35-7j-6mt">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecentDeckCell" id="F35-7j-6mt" customClass="RecentDeckCollectionViewCell" customModule="flashcards" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="242" height="109"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="riy-d0-015">
@@ -203,21 +203,67 @@
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fhX-Ay-Wqq">
                                                             <rect key="frame" x="0.0" y="0.0" width="242" height="109"/>
-                                                            <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="242" id="TVU-le-BSa"/>
                                                                 <constraint firstAttribute="height" constant="109" id="lNL-My-r0j"/>
                                                             </constraints>
                                                         </view>
+                                                        <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x6i-y3-Bvf">
+                                                            <rect key="frame" x="1" y="-9.6666666666666288" width="240" height="128"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ibt-ec-BYd">
+                                                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Natural Language Tech" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="vm0-Bo-jpo">
+                                                                        <rect key="frame" x="16" y="24" width="208" height="21"/>
+                                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="31 TOTAL CARDS | 10 COMPLETED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLb-fN-rdJ">
+                                                                        <rect key="frame" x="16" y="55" width="208" height="15"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="vm0-Bo-jpo" firstAttribute="leading" secondItem="Ibt-ec-BYd" secondAttribute="leading" constant="16" id="WrM-du-vbj"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="vm0-Bo-jpo" secondAttribute="trailing" constant="16" id="cbV-au-wCY"/>
+                                                                    <constraint firstItem="mLb-fN-rdJ" firstAttribute="top" secondItem="vm0-Bo-jpo" secondAttribute="bottom" constant="10" id="gnC-eB-Vnt"/>
+                                                                    <constraint firstItem="mLb-fN-rdJ" firstAttribute="leading" secondItem="Ibt-ec-BYd" secondAttribute="leading" constant="16" id="npj-cM-N2m"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="mLb-fN-rdJ" secondAttribute="trailing" constant="16" id="saR-d2-aXq"/>
+                                                                    <constraint firstItem="vm0-Bo-jpo" firstAttribute="top" secondItem="Ibt-ec-BYd" secondAttribute="top" constant="24" id="tew-ea-Q45"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <vibrancyEffect>
+                                                                <blurEffect style="systemMaterial"/>
+                                                            </vibrancyEffect>
+                                                        </visualEffectView>
+                                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Qef-9x-nmI">
+                                                            <rect key="frame" x="16" y="85" width="210" height="4"/>
+                                                            <color key="progressTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </progressView>
                                                     </subviews>
                                                     <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="Qef-9x-nmI" secondAttribute="trailing" constant="16" id="C2q-Iq-wsD"/>
                                                         <constraint firstAttribute="bottom" secondItem="fhX-Ay-Wqq" secondAttribute="bottom" id="D4y-9z-SHZ"/>
                                                         <constraint firstItem="fhX-Ay-Wqq" firstAttribute="top" secondItem="riy-d0-015" secondAttribute="top" id="DYH-5K-6nl"/>
                                                         <constraint firstItem="fhX-Ay-Wqq" firstAttribute="leading" secondItem="riy-d0-015" secondAttribute="leading" id="dBf-fA-8pT"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Qef-9x-nmI" secondAttribute="bottom" constant="20" id="fIv-1s-AIT"/>
+                                                        <constraint firstItem="Qef-9x-nmI" firstAttribute="leading" secondItem="riy-d0-015" secondAttribute="leading" constant="16" id="hU0-jn-yiR"/>
                                                         <constraint firstAttribute="trailing" secondItem="fhX-Ay-Wqq" secondAttribute="trailing" id="l7B-ou-GL4"/>
                                                     </constraints>
                                                 </collectionViewCellContentView>
                                                 <size key="customSize" width="242" height="109"/>
+                                                <connections>
+                                                    <outlet property="deckStatLabel" destination="mLb-fN-rdJ" id="aFc-dK-imW"/>
+                                                    <outlet property="overlay" destination="fhX-Ay-Wqq" id="N4f-7V-p9V"/>
+                                                    <outlet property="progressBar" destination="Qef-9x-nmI" id="l3G-Ql-dl4"/>
+                                                    <outlet property="titleLabel" destination="vm0-Bo-jpo" id="1kV-Fi-doS"/>
+                                                </connections>
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
@@ -253,6 +299,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="My Decks" id="kSz-5t-zg4"/>
                     <connections>
+                        <outlet property="RecentCollectionView" destination="NC8-al-XoI" id="Hym-2B-1T5"/>
                         <outlet property="blurView" destination="L9g-0d-NpA" id="yVo-Up-rD6"/>
                         <outlet property="cardView" destination="zJB-5v-Kgz" id="WEt-E2-oFr"/>
                     </connections>
@@ -362,9 +409,6 @@
         </namedColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

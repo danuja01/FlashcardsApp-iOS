@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD67D1C52BC5981C004C1206 /* RecentDeckCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD67D1C42BC5981C004C1206 /* RecentDeckCollectionViewCell.swift */; };
 		ADF3D48F2BC5203F00437535 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3D48E2BC5203F00437535 /* AppDelegate.swift */; };
 		ADF3D4912BC5203F00437535 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3D4902BC5203F00437535 /* SceneDelegate.swift */; };
 		ADF3D4932BC5203F00437535 /* MyDecksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3D4922BC5203F00437535 /* MyDecksViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD67D1C42BC5981C004C1206 /* RecentDeckCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentDeckCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADF3D48B2BC5203F00437535 /* flashcards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flashcards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADF3D48E2BC5203F00437535 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADF3D4902BC5203F00437535 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD67D1C32BC58C74004C1206 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				AD67D1C42BC5981C004C1206 /* RecentDeckCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		ADF3D4822BC5203F00437535 = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +74,7 @@
 		ADF3D48D2BC5203F00437535 /* flashcards */ = {
 			isa = PBXGroup;
 			children = (
+				AD67D1C32BC58C74004C1206 /* Cells */,
 				ADF3D4A72BC53E2300437535 /* Helpers */,
 				ADF3D4A22BC53DD000437535 /* View Controllers */,
 				ADF3D48E2BC5203F00437535 /* AppDelegate.swift */,
@@ -170,6 +181,7 @@
 				ADF3D4AA2BC53E2300437535 /* CustomUIView.swift in Sources */,
 				ADF3D4AB2BC53E2300437535 /* Font.swift in Sources */,
 				ADF3D48F2BC5203F00437535 /* AppDelegate.swift in Sources */,
+				AD67D1C52BC5981C004C1206 /* RecentDeckCollectionViewCell.swift in Sources */,
 				ADF3D4A82BC53E2300437535 /* CustomBlurView.swift in Sources */,
 				ADF3D4912BC5203F00437535 /* SceneDelegate.swift in Sources */,
 				ADF3D4A92BC53E2300437535 /* CustomImageView.swift in Sources */,
