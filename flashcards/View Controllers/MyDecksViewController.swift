@@ -15,7 +15,7 @@ class MyDecksViewController: UIViewController {
     @IBOutlet var recentCollectionView: UICollectionView!
     @IBOutlet var decksTabelView: UITableView!
     @IBOutlet var tableViewHeight: NSLayoutConstraint!
-    
+    @IBOutlet var scrollView: UIScrollView!
     
     
     private var tokens: Set<AnyCancellable> = []
@@ -37,6 +37,8 @@ class MyDecksViewController: UIViewController {
                 self.tableViewHeight.constant = newContentSize.height
             }
             .store(in: &tokens)
+        
+        scrollView.delegate = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -121,4 +123,22 @@ extension MyDecksViewController: UITableViewDelegate, UITableViewDataSource {
         performSegue(withIdentifier: "presentFlashcards", sender: selectedDeck)
     }
     
+}
+
+extension MyDecksViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let contentHeight = scrollView.contentSize.height
+        let lastScrollYPos = scrollView.contentOffset.y
+        
+        let precentage = lastScrollYPos / contentHeight
+        print(precentage)
+        
+        if precentage < 0.07 {
+            self.title = "Featured"
+        } else if precentage <= 0.2 {
+            self.title = "Recent Decks"
+        } else {
+            self.title = "All Decks"
+        }
+    }
 }
