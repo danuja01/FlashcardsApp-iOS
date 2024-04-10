@@ -6,12 +6,19 @@
 //
 
 import UIKit
+import Combine
 
 class MyDecksViewController: UIViewController {
 
     @IBOutlet var cardView: CustomView!
     @IBOutlet var blurView: UIVisualEffectView!
     @IBOutlet var recentCollectionView: UICollectionView!
+    @IBOutlet var decksTabelView: UITableView!
+    @IBOutlet var tableViewHeight: NSLayoutConstraint!
+    
+    
+    
+    private var tokens: Set<AnyCancellable> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,18 +26,41 @@ class MyDecksViewController: UIViewController {
         recentCollectionView.delegate = self
         recentCollectionView.dataSource = self
         recentCollectionView.layer.masksToBounds = false
+        
+        decksTabelView.delegate = self
+        decksTabelView.dataSource = self
+        decksTabelView.layer.masksToBounds = false
+        decksTabelView.separatorStyle = .none
+        
+        decksTabelView.publisher(for: \.contentSize)
+            .sink { newContentSize in
+                self.tableViewHeight.constant = newContentSize.height
+            }
+            .store(in: &tokens)
     }
+    
+    
+    @IBAction func pressStarBtn(_ sender: UIButton) {
+        UIView.transition(with: sender, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                if sender.image(for: .normal) == UIImage(systemName: "star.fill") {
+                    sender.setImage(UIImage(systemName: "star"), for: .normal)
+                } else {
+                    sender.setImage(UIImage(systemName: "star.fill"), for: .normal)
+                }
+            }, completion: nil)
+    }
+    
 }
 
 extension MyDecksViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return recentDecks.count
+        return sampleDecks.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecentDeckCell", for: indexPath) as! RecentDeckCollectionViewCell
         
-        let deck = recentDecks[indexPath.item]
+        let deck = sampleDecks[indexPath.item]
         
         cell.titleLabel.text = deck.deckName
         cell.deckStatLabel.text = "\(deck.totalCards) TOTAL CARDS | \(deck.completedCount) COMPLETED"
@@ -40,7 +70,47 @@ extension MyDecksViewController: UICollectionViewDelegate, UICollectionViewDataS
         
         return cell
     }
-    
-    
 }
 
+extension MyDecksViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sampleDecks.count
+    }
+
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DecksTableCell", for: indexPath) as! DecksTableViewCell
+        
+        let deck = sampleDecks[indexPath.section]
+        
+        cell.titleLabel.text = deck.deckName
+        cell.deckStatLabel.text = "\(deck.totalCards) TOTAL CARDS | \(deck.completedCount) COMPLETED"
+        cell.descriptionLabel.text = deck.description
+    
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 0
+        }
+        
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+}

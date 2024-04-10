@@ -5,17 +5,24 @@ struct Deck {
     var deckName: String
     var lastViewed: Date
     var completedCount: Int
-    var totalCards: Int 
+    var totalCards: Int
+    var description: String
     var flashcards: [String: Flashcard]
 }
 
-let recentDecks = [
+enum Status: String {
+    case pending = "pending"
+    case completed = "completed"
+}
+
+let sampleDecks = [
     Deck(
         deckID: "deck001",
         deckName: "Biology Basics",
         lastViewed: Date(),
         completedCount: 12,
         totalCards: 30,
+        description: "Explore the fundamentals of biological science, from cell division to the principles of photosynthesis.",
         flashcards: [
             "flashcard001": Flashcard(flashcardID: "flashcard001", frontLabel: "What is mitosis?", backDescription: "Mitosis is a part of the cell cycle in which replicated chromosomes are separated into two new nuclei.", status: .completed),
             "flashcard002": Flashcard(flashcardID: "flashcard002", frontLabel: "What is photosynthesis?", backDescription: "Photosynthesis is the process used by plants, algae, and certain bacteria to harness energy from sunlight into chemical energy.", status: .completed)
@@ -27,6 +34,7 @@ let recentDecks = [
         lastViewed: Date(),
         completedCount: 4,
         totalCards: 20,
+        description: "Dive into the key events that shaped our world, from ancient civilizations to modern conflicts.",
         flashcards: [
             "flashcard003": Flashcard(flashcardID: "flashcard003", frontLabel: "Who built the Pyramids?", backDescription: "The Pyramids were built by the ancient Egyptian civilization.", status: .pending),
             "flashcard004": Flashcard(flashcardID: "flashcard004", frontLabel: "What caused World War I?", backDescription: "World War I was primarily triggered by the assassination of Archduke Franz Ferdinand of Austria-Hungary in 1914.", status: .completed)
@@ -38,6 +46,7 @@ let recentDecks = [
         lastViewed: Date(),
         completedCount: 9,
         totalCards: 10,
+        description: "Uncover the mysteries of chemical reactions, atomic structure, and molecular theory.",
         flashcards: [
             "flashcard005": Flashcard(flashcardID: "flashcard005", frontLabel: "Define atom.", backDescription: "An atom is the smallest constituent unit of ordinary matter that has the properties of a chemical element.", status: .completed),
             "flashcard006": Flashcard(flashcardID: "flashcard006", frontLabel: "What is the Avogadro's number?", backDescription: "Avogadro's number is the number of constituent particles, usually atoms or molecules, that are contained in the amount of substance given by one mole.", status: .completed),
@@ -50,6 +59,7 @@ let recentDecks = [
         lastViewed: Date(),
         completedCount: 0,
         totalCards: 2,
+        description: "Grasp the fundamental concepts of mathematics, including calculus and geometric theorems.",
         flashcards: [
             "flashcard008": Flashcard(flashcardID: "flashcard008", frontLabel: "What is a derivative?", backDescription: "A derivative represents the rate at which a function changes as its input changes.", status: .pending),
             "flashcard009": Flashcard(flashcardID: "flashcard009", frontLabel: "Explain the Pythagorean theorem.", backDescription: "The Pythagorean theorem states that in a right triangle, the square of the hypotenuse is equal to the sum of the squares of the other two sides.", status: .pending)
@@ -61,6 +71,7 @@ let recentDecks = [
         lastViewed: Date(),
         completedCount: 1,
         totalCards: 2,
+        description: "Learn the basics of programming, from variables and data types to complex algorithms and recursive functions.",
         flashcards: [
             "flashcard010": Flashcard(flashcardID: "flashcard010", frontLabel: "What is a variable in programming?", backDescription: "A variable in programming is a storage location paired with an associated symbolic name, which contains some known or unknown quantity of information referred to as a value.", status: .completed),
             "flashcard011": Flashcard(flashcardID: "flashcard011", frontLabel: "What is recursion?", backDescription: "Recursion in computer science is a method where the solution to a problem depends on solutions to smaller instances of the same problem.", status: .completed)

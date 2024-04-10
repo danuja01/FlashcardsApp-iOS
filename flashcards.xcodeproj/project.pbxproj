@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD2971652BC67BBB00CC052C /* FlashcardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2971642BC67BBB00CC052C /* FlashcardsViewController.swift */; };
+		AD48BF1A2BC5CBAC009210D4 /* DecksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD48BF192BC5CBAC009210D4 /* DecksTableViewCell.swift */; };
 		AD67D1C52BC5981C004C1206 /* RecentDeckCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD67D1C42BC5981C004C1206 /* RecentDeckCollectionViewCell.swift */; };
 		AD67D1C82BC59FFD004C1206 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD67D1C72BC59FFD004C1206 /* Deck.swift */; };
 		AD67D1CA2BC5A26D004C1206 /* Flashcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD67D1C92BC5A26D004C1206 /* Flashcard.swift */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD2971642BC67BBB00CC052C /* FlashcardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsViewController.swift; sourceTree = "<group>"; };
+		AD48BF192BC5CBAC009210D4 /* DecksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecksTableViewCell.swift; sourceTree = "<group>"; };
 		AD67D1C42BC5981C004C1206 /* RecentDeckCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentDeckCollectionViewCell.swift; sourceTree = "<group>"; };
 		AD67D1C72BC59FFD004C1206 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		AD67D1C92BC5A26D004C1206 /* Flashcard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcard.swift; sourceTree = "<group>"; };
@@ -55,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				AD67D1C42BC5981C004C1206 /* RecentDeckCollectionViewCell.swift */,
+				AD48BF192BC5CBAC009210D4 /* DecksTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -105,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				ADF3D4922BC5203F00437535 /* MyDecksViewController.swift */,
+				AD2971642BC67BBB00CC052C /* FlashcardsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -195,8 +201,10 @@
 				ADF3D4AA2BC53E2300437535 /* CustomUIView.swift in Sources */,
 				ADF3D4AB2BC53E2300437535 /* Font.swift in Sources */,
 				ADF3D48F2BC5203F00437535 /* AppDelegate.swift in Sources */,
+				AD48BF1A2BC5CBAC009210D4 /* DecksTableViewCell.swift in Sources */,
 				AD67D1CA2BC5A26D004C1206 /* Flashcard.swift in Sources */,
 				AD67D1C52BC5981C004C1206 /* RecentDeckCollectionViewCell.swift in Sources */,
+				AD2971652BC67BBB00CC052C /* FlashcardsViewController.swift in Sources */,
 				AD67D1C82BC59FFD004C1206 /* Deck.swift in Sources */,
 				ADF3D4A82BC53E2300437535 /* CustomBlurView.swift in Sources */,
 				ADF3D4912BC5203F00437535 /* SceneDelegate.swift in Sources */,
