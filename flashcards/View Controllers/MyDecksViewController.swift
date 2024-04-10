@@ -39,6 +39,12 @@ class MyDecksViewController: UIViewController {
             .store(in: &tokens)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let detailsVC = segue.destination as? FlashcardsViewController, let deck = sender as? Deck {
+            detailsVC.deck = deck
+        }
+    }
+    
     
     @IBAction func pressStarBtn(_ sender: UIButton) {
         UIView.transition(with: sender, duration: 0.3, options: .transitionCrossDissolve, animations: {
@@ -111,6 +117,8 @@ extension MyDecksViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let selectedDeck = sampleDecks[indexPath.section]
+        performSegue(withIdentifier: "presentFlashcards", sender: selectedDeck)
     }
     
 }

@@ -8,10 +8,12 @@
 import UIKit
 
 class FlashcardsViewController: UIViewController {
+    
+    var deck : Deck?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("This deck is \(String(describing: deck?.deckName))")
         // Do any additional setup after loading the view.
     }
     

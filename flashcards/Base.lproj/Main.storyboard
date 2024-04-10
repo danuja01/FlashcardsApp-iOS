@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="bottomRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background01" translatesAutoresizingMaskIntoConstraints="NO" id="7T9-wJ-OaC">
-                                        <rect key="frame" x="0.0" y="157.33333333333334" width="393" height="464.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="-155.00000000000003" width="393" height="464.66666666666674"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zJB-5v-Kgz" customClass="CustomView" customModule="flashcards" customModuleProvider="target">
                                         <rect key="frame" x="16" y="20" width="361" height="150"/>
@@ -466,22 +466,24 @@
                         <outlet property="decksTabelView" destination="iHc-5H-G16" id="RIo-vw-ATW"/>
                         <outlet property="recentCollectionView" destination="NC8-al-XoI" id="Hym-2B-1T5"/>
                         <outlet property="tableViewHeight" destination="j5b-81-pMV" id="0le-RT-niw"/>
+                        <segue destination="CFe-lc-LL4" kind="presentation" identifier="presentFlashcards" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="pa4-Qx-VTK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1994.6564885496182" y="-543.66197183098598"/>
         </scene>
-        <!--View Controller-->
+        <!--Flashcards View Controller-->
         <scene sceneID="S8O-MD-hJw">
             <objects>
-                <viewController id="CFe-lc-LL4" sceneMemberID="viewController">
+                <viewController id="CFe-lc-LL4" customClass="FlashcardsViewController" customModule="flashcards" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OXH-Q7-sAe">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="6uh-k8-fc9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Xbt-oB-WXM"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M8X-QY-ru3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
