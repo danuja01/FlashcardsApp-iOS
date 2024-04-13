@@ -42,7 +42,7 @@ class MyDecksViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let detailsVC = segue.destination as? FlashcardsViewController, let deck = sender as? Deck {
+        if let detailsVC = segue.destination as? FlashcardsViewController, let deck = sender as? Deck2 {
             detailsVC.deck = deck
         }
     }

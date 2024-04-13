@@ -1,13 +1,13 @@
 import UIKit
 
-struct Deck {
+struct Deck2 {
     var deckID: String
     var deckName: String
     var lastViewed: Date
     var completedCount: Int
     var totalCards: Int
     var description: String
-    var flashcards: [Flashcard]
+    var flashcards: [Flashcard2]
 }
 
 //struct Deck {
@@ -44,7 +44,7 @@ enum Status: String {
 }
 
 let sampleDecks = [
-    Deck(
+    Deck2(
         deckID: "deck001",
         deckName: "Biology Basics",
         lastViewed: Date(),
@@ -53,7 +53,7 @@ let sampleDecks = [
         description: "Explore the fundamentals of biological science, from cell division to the principles of photosynthesis.",
         flashcards: sampleFlashcards
     ),
-    Deck(
+    Deck2(
         deckID: "deck002",
         deckName: "World History",
         lastViewed: Date(),
@@ -62,7 +62,7 @@ let sampleDecks = [
         description: "Dive into the key events that shaped our world, from ancient civilizations to modern conflicts.",
         flashcards: sampleFlashcards
     ),
-    Deck(
+    Deck2(
         deckID: "deck003",
         deckName: "Chemistry 101",
         lastViewed: Date(),
@@ -71,7 +71,7 @@ let sampleDecks = [
         description: "Uncover the mysteries of chemical reactions, atomic structure, and molecular theory.",
         flashcards: sampleFlashcards
     ),
-    Deck(
+    Deck2(
         deckID: "deck004",
         deckName: "Mathematics",
         lastViewed: Date(),
@@ -80,7 +80,7 @@ let sampleDecks = [
         description: "Grasp the fundamental concepts of mathematics, including calculus and geometric theorems.",
         flashcards : sampleFlashcards
     ),
-    Deck(
+    Deck2(
         deckID: "deck005",
         deckName: "Programming Fundamentals",
         lastViewed: Date(),

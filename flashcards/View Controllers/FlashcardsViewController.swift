@@ -10,7 +10,7 @@ import Combine
 
 class FlashcardsViewController: UIViewController {
     
-    var deck : Deck?
+    var deck : Deck2?
     
     
     @IBOutlet var deckTitle: UILabel!
@@ -40,7 +40,7 @@ class FlashcardsViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let swippableVC = segue.destination as? SwippableViewController, let cards = sender as? [Flashcard] {
+        if let swippableVC = segue.destination as? SwippableViewController, let cards = sender as? [Flashcard2] {
             swippableVC.flashcards = cards
         }
     }

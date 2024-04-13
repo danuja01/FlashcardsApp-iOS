@@ -3,7 +3,7 @@ import UIKit
 class SwippableViewController: UIViewController {
     
     var currentCardIndex = 0
-    var flashcards: [Flashcard]?
+    var flashcards: [Flashcard2]?
     
     @IBOutlet var card: SwappableCard!
     @IBOutlet var progressBar: UIProgressView!
