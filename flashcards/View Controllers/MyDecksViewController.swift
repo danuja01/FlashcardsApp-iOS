@@ -131,7 +131,6 @@ extension MyDecksViewController: UIScrollViewDelegate {
         let lastScrollYPos = scrollView.contentOffset.y
         
         let precentage = lastScrollYPos / contentHeight
-        print(precentage)
         
         if precentage < 0.07 {
             self.title = "Featured"

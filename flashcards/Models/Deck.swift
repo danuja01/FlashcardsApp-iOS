@@ -10,6 +10,34 @@ struct Deck {
     var flashcards: [Flashcard]
 }
 
+//struct Deck {
+//    static var deckCounter = 0  // Static counter to keep track of the number of decks
+//    
+//    var deckID: String
+//    var deckName: String
+//    var lastViewed: Date
+//    var completedCount: Int
+//    var totalCards: Int {
+//        return flashcards.count  // Computed property to always return the count of flashcards
+//    }
+//    var description: String
+//    var flashcards: [Flashcard]
+//
+//    // Custom initializer to setup defaults and manage unique IDs
+//    init(deckName: String, description: String, flashcards: [Flashcard]) {
+//        self.deckName = deckName
+//        self.description = description
+//        self.flashcards = flashcards
+//        self.lastViewed = Date()  // Default to the current date
+//        self.completedCount = 0   // Default completed count
+//        
+//        // Increment deck counter and set deck ID
+//        Deck.deckCounter += 1
+//        self.deckID = "deck\(Deck.deckCounter)"
+//    }
+//}
+
+
 enum Status: String {
     case pending = "pending"
     case completed = "completed"

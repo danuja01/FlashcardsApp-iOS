@@ -7,11 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD24B64E2BCA689A00168BD7 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD24B64D2BCA689A00168BD7 /* CustomTextView.swift */; };
+		AD24B6502BCA6CB100168BD7 /* AddNewFlashcardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD24B64F2BCA6CB100168BD7 /* AddNewFlashcardViewController.swift */; };
 		AD2971652BC67BBB00CC052C /* FlashcardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2971642BC67BBB00CC052C /* FlashcardsViewController.swift */; };
+		AD455B182BC8127600CC7410 /* ToastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD455B172BC8127600CC7410 /* ToastManager.swift */; };
 		AD48BF1A2BC5CBAC009210D4 /* DecksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD48BF192BC5CBAC009210D4 /* DecksTableViewCell.swift */; };
+		AD4B697A2BC9B23900617DBF /* AddNewDeckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4B69792BC9B23900617DBF /* AddNewDeckViewController.swift */; };
 		AD67D1C52BC5981C004C1206 /* RecentDeckCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD67D1C42BC5981C004C1206 /* RecentDeckCollectionViewCell.swift */; };
 		AD67D1C82BC59FFD004C1206 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD67D1C72BC59FFD004C1206 /* Deck.swift */; };
 		AD67D1CA2BC5A26D004C1206 /* Flashcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD67D1C92BC5A26D004C1206 /* Flashcard.swift */; };
+		ADC90BA02BC6D73400F21E69 /* FlashcardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC90B9F2BC6D73400F21E69 /* FlashcardTableViewCell.swift */; };
+		ADC90BA22BC6F2C000F21E69 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC90BA12BC6F2C000F21E69 /* GradientButton.swift */; };
+		ADEE8CEF2BC7097100173A90 /* SwippableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEE8CEE2BC7097100173A90 /* SwippableViewController.swift */; };
+		ADEE8CF22BC70B1400173A90 /* SwappableCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEE8CF12BC70B1400173A90 /* SwappableCard.swift */; };
 		ADF3D48F2BC5203F00437535 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3D48E2BC5203F00437535 /* AppDelegate.swift */; };
 		ADF3D4912BC5203F00437535 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3D4902BC5203F00437535 /* SceneDelegate.swift */; };
 		ADF3D4932BC5203F00437535 /* MyDecksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3D4922BC5203F00437535 /* MyDecksViewController.swift */; };
@@ -25,11 +33,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD24B64D2BCA689A00168BD7 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
+		AD24B64F2BCA6CB100168BD7 /* AddNewFlashcardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewFlashcardViewController.swift; sourceTree = "<group>"; };
 		AD2971642BC67BBB00CC052C /* FlashcardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsViewController.swift; sourceTree = "<group>"; };
+		AD455B172BC8127600CC7410 /* ToastManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastManager.swift; sourceTree = "<group>"; };
 		AD48BF192BC5CBAC009210D4 /* DecksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecksTableViewCell.swift; sourceTree = "<group>"; };
+		AD4B69792BC9B23900617DBF /* AddNewDeckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewDeckViewController.swift; sourceTree = "<group>"; };
 		AD67D1C42BC5981C004C1206 /* RecentDeckCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentDeckCollectionViewCell.swift; sourceTree = "<group>"; };
 		AD67D1C72BC59FFD004C1206 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		AD67D1C92BC5A26D004C1206 /* Flashcard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcard.swift; sourceTree = "<group>"; };
+		ADC90B9F2BC6D73400F21E69 /* FlashcardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardTableViewCell.swift; sourceTree = "<group>"; };
+		ADC90BA12BC6F2C000F21E69 /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
+		ADEE8CEE2BC7097100173A90 /* SwippableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwippableViewController.swift; sourceTree = "<group>"; };
+		ADEE8CF12BC70B1400173A90 /* SwappableCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwappableCard.swift; sourceTree = "<group>"; };
 		ADF3D48B2BC5203F00437535 /* flashcards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flashcards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADF3D48E2BC5203F00437535 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADF3D4902BC5203F00437535 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +76,7 @@
 			children = (
 				AD67D1C42BC5981C004C1206 /* RecentDeckCollectionViewCell.swift */,
 				AD48BF192BC5CBAC009210D4 /* DecksTableViewCell.swift */,
+				ADC90B9F2BC6D73400F21E69 /* FlashcardTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -71,6 +88,14 @@
 				AD67D1C92BC5A26D004C1206 /* Flashcard.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		ADEE8CF02BC70AF300173A90 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ADEE8CF12BC70B1400173A90 /* SwappableCard.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		ADF3D4822BC5203F00437535 = {
@@ -92,6 +117,7 @@
 		ADF3D48D2BC5203F00437535 /* flashcards */ = {
 			isa = PBXGroup;
 			children = (
+				ADEE8CF02BC70AF300173A90 /* Views */,
 				AD67D1C62BC59FDB004C1206 /* Models */,
 				AD67D1C32BC58C74004C1206 /* Cells */,
 				ADF3D4A72BC53E2300437535 /* Helpers */,
@@ -111,6 +137,9 @@
 			children = (
 				ADF3D4922BC5203F00437535 /* MyDecksViewController.swift */,
 				AD2971642BC67BBB00CC052C /* FlashcardsViewController.swift */,
+				ADEE8CEE2BC7097100173A90 /* SwippableViewController.swift */,
+				AD4B69792BC9B23900617DBF /* AddNewDeckViewController.swift */,
+				AD24B64F2BCA6CB100168BD7 /* AddNewFlashcardViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -121,7 +150,10 @@
 				ADF3D4A32BC53E2300437535 /* CustomBlurView.swift */,
 				ADF3D4A42BC53E2300437535 /* CustomImageView.swift */,
 				ADF3D4A52BC53E2300437535 /* CustomUIView.swift */,
+				AD24B64D2BCA689A00168BD7 /* CustomTextView.swift */,
 				ADF3D4A62BC53E2300437535 /* Font.swift */,
+				ADC90BA12BC6F2C000F21E69 /* GradientButton.swift */,
+				AD455B172BC8127600CC7410 /* ToastManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -197,17 +229,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD24B6502BCA6CB100168BD7 /* AddNewFlashcardViewController.swift in Sources */,
+				AD24B64E2BCA689A00168BD7 /* CustomTextView.swift in Sources */,
 				ADF3D4932BC5203F00437535 /* MyDecksViewController.swift in Sources */,
 				ADF3D4AA2BC53E2300437535 /* CustomUIView.swift in Sources */,
 				ADF3D4AB2BC53E2300437535 /* Font.swift in Sources */,
+				ADC90BA02BC6D73400F21E69 /* FlashcardTableViewCell.swift in Sources */,
 				ADF3D48F2BC5203F00437535 /* AppDelegate.swift in Sources */,
 				AD48BF1A2BC5CBAC009210D4 /* DecksTableViewCell.swift in Sources */,
+				ADEE8CEF2BC7097100173A90 /* SwippableViewController.swift in Sources */,
+				ADEE8CF22BC70B1400173A90 /* SwappableCard.swift in Sources */,
 				AD67D1CA2BC5A26D004C1206 /* Flashcard.swift in Sources */,
+				ADC90BA22BC6F2C000F21E69 /* GradientButton.swift in Sources */,
 				AD67D1C52BC5981C004C1206 /* RecentDeckCollectionViewCell.swift in Sources */,
 				AD2971652BC67BBB00CC052C /* FlashcardsViewController.swift in Sources */,
 				AD67D1C82BC59FFD004C1206 /* Deck.swift in Sources */,
 				ADF3D4A82BC53E2300437535 /* CustomBlurView.swift in Sources */,
+				AD455B182BC8127600CC7410 /* ToastManager.swift in Sources */,
 				ADF3D4912BC5203F00437535 /* SceneDelegate.swift in Sources */,
+				AD4B697A2BC9B23900617DBF /* AddNewDeckViewController.swift in Sources */,
 				ADF3D4A92BC53E2300437535 /* CustomImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
