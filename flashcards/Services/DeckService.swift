@@ -24,8 +24,7 @@ class DeckService {
         newDeck.deckName = deckName
         newDeck.deckDescription = description
         newDeck.lastViewed = Date()
-        newDeck.completedCount = 0
-        saveContext()
+        AppDelegate.shared.saveContext()
         return newDeck
     }
 
@@ -43,24 +42,12 @@ class DeckService {
     // Update a Deck's 'lastViewed' property
     func updateLastViewed(for deck: Deck) {
         deck.lastViewed = Date()
-        saveContext()
+        AppDelegate.shared.saveContext()
     }
 
     // Delete a Deck
     func deleteDeck(_ deck: Deck) {
         context.delete(deck)
-        saveContext()
-    }
-
-    // Save any changes to the context
-    private func saveContext() {
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
+        AppDelegate.shared.saveContext()
     }
 }

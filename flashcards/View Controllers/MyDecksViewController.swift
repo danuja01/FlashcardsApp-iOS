@@ -9,7 +9,7 @@ import UIKit
 import Combine
 
 class MyDecksViewController: UIViewController {
-
+    
     @IBOutlet var cardView: CustomView!
     @IBOutlet var blurView: UIVisualEffectView!
     @IBOutlet var recentCollectionView: UICollectionView!
@@ -20,8 +20,18 @@ class MyDecksViewController: UIViewController {
     
     private var tokens: Set<AnyCancellable> = []
     
+    var deckService: DeckService!
+    
+    private var allDecks: [Deck] = []
+    private var recentDecks: [Deck] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(fetchDecks), name: .didUpdateDecks, object: nil)
+        
+        deckService = DeckService(context: AppDelegate.getContext())
+        fetchDecks()
         
         recentCollectionView.delegate = self
         recentCollectionView.dataSource = self
@@ -39,10 +49,25 @@ class MyDecksViewController: UIViewController {
             .store(in: &tokens)
         
         scrollView.delegate = self
+        
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        fetchDecks()  // Fetch and refresh the decks every time the view appears
+    }
+    
+    @objc private func fetchDecks() {
+        allDecks = deckService.fetchAllDecks()
+        allDecks.sort { ($0.lastViewed ?? Date.distantPast) > ($1.lastViewed ?? Date.distantPast) }
+        recentDecks = allDecks.prefix(5).map { $0 }
+        decksTabelView.reloadData()
+        recentCollectionView.reloadData()
+    }
+
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let detailsVC = segue.destination as? FlashcardsViewController, let deck = sender as? Deck2 {
+        if let detailsVC = segue.destination as? FlashcardsViewController, let deck = sender as? Deck {
             detailsVC.deck = deck
         }
     }
@@ -50,30 +75,33 @@ class MyDecksViewController: UIViewController {
     
     @IBAction func pressStarBtn(_ sender: UIButton) {
         UIView.transition(with: sender, duration: 0.3, options: .transitionCrossDissolve, animations: {
-                if sender.image(for: .normal) == UIImage(systemName: "star.fill") {
-                    sender.setImage(UIImage(systemName: "star"), for: .normal)
-                } else {
-                    sender.setImage(UIImage(systemName: "star.fill"), for: .normal)
-                }
-            }, completion: nil)
+            if sender.image(for: .normal) == UIImage(systemName: "star.fill") {
+                sender.setImage(UIImage(systemName: "star"), for: .normal)
+            } else {
+                sender.setImage(UIImage(systemName: "star.fill"), for: .normal)
+            }
+        }, completion: nil)
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 }
 
 extension MyDecksViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return sampleDecks.count
+        return recentDecks.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecentDeckCell", for: indexPath) as! RecentDeckCollectionViewCell
         
-        let deck = sampleDecks[indexPath.item]
+        let deck = recentDecks[indexPath.item]
         
         cell.titleLabel.text = deck.deckName
-        cell.deckStatLabel.text = "\(deck.totalCards) TOTAL CARDS | \(deck.completedCount) COMPLETED"
-            
-        let completionRate = deck.totalCards > 0 ? Float(deck.completedCount) / Float(deck.totalCards) : 0.0
+        cell.deckStatLabel.text = "\(deck.flashcards?.count ?? 0) TOTAL CARDS | \(deck.completedCount) COMPLETED"
+        
+        let completionRate = (deck.flashcards?.count ?? 0) > 0 ? Float(deck.completedCount) / Float(deck.flashcards?.count ?? 1) : 0.0
         cell.progressBar.progress = completionRate
         
         return cell
@@ -83,34 +111,29 @@ extension MyDecksViewController: UICollectionViewDelegate, UICollectionViewDataS
 extension MyDecksViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sampleDecks.count
+        return allDecks.count
     }
-
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
-
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DecksTableCell", for: indexPath) as! DecksTableViewCell
         
-        let deck = sampleDecks[indexPath.section]
+        let deck = allDecks[indexPath.section]
         
         cell.titleLabel.text = deck.deckName
-        cell.deckStatLabel.text = "\(deck.totalCards) TOTAL CARDS | \(deck.completedCount) COMPLETED"
-        cell.descriptionLabel.text = deck.description
-    
+        cell.deckStatLabel.text = "\(deck.flashcards?.count ?? 0) TOTAL CARDS | \(deck.completedCount) COMPLETED"
+        cell.descriptionLabel.text = deck.deckDescription
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 {
-            return 0
-        }
-        
-        return 5
+        return section == 0 ? 0 : 5
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -119,7 +142,7 @@ extension MyDecksViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let selectedDeck = sampleDecks[indexPath.section]
+        let selectedDeck = allDecks[indexPath.section]
         performSegue(withIdentifier: "presentFlashcards", sender: selectedDeck)
     }
     

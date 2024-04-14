@@ -21,6 +21,7 @@ extension Flashcard {
     @NSManaged public var frontLabel: String?
     @NSManaged public var status: String?
     @NSManaged public var deck: Deck?
+    @NSManaged public var createdAt: Date
 
 }
 

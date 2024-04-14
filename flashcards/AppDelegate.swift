@@ -51,6 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if context.hasChanges {
             do {
                 try context.save()
+                print("Context successfully saved.")
             } catch {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
@@ -61,6 +62,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     class func getContext() -> NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
+    }
+    
+    static var shared: AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
     }
 }
 

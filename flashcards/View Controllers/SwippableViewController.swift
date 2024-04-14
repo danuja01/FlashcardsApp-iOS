@@ -3,7 +3,7 @@ import UIKit
 class SwippableViewController: UIViewController {
     
     var currentCardIndex = 0
-    var flashcards: [Flashcard2]?
+    var flashcards: [Flashcard]?
     
     @IBOutlet var card: SwappableCard!
     @IBOutlet var progressBar: UIProgressView!
@@ -41,8 +41,8 @@ class SwippableViewController: UIViewController {
         newCard.center = view.center
         newCard.delegate = self  // Set this view controller as the delegate
         let currentFlashcard = flashcards[currentCardIndex]
-        newCard.setQuestion(currentFlashcard.frontLabel)
-        newCard.setAnswer(currentFlashcard.backDescription)
+        newCard.setQuestion(currentFlashcard.frontLabel ?? "No question available")
+        newCard.setAnswer(currentFlashcard.backDescription ?? "No answer available")
         view.addSubview(newCard)
         card = newCard
     }
@@ -66,9 +66,22 @@ class SwippableViewController: UIViewController {
 
 extension SwippableViewController: SwappableCardDelegate {
     func didSwipe(direction: String) {
-        print(direction == "right" ? "Completed" : "Skipped")
+        guard let flashcards = flashcards, currentCardIndex < flashcards.count else { return }
+        let flashcard = flashcards[currentCardIndex]
 
-        if currentCardIndex < (flashcards?.count ?? 0) - 1 {
+        if direction == "right" {
+            flashcard.status = "completed"
+            print("Flashcard completed")
+        } else if direction == "left" {
+            flashcard.status = "skipped"
+            print("Flashcard skipped")
+        }
+
+        AppDelegate.shared.saveContext()
+        
+        NotificationCenter.default.post(name: .didUpdateFlashcards, object: nil)  // Post a custom notification
+
+        if currentCardIndex < flashcards.count - 1 {
             currentCardIndex += 1
             updateProgress()
             setupNextCard()
@@ -79,3 +92,5 @@ extension SwippableViewController: SwappableCardDelegate {
         }
     }
 }
+
+

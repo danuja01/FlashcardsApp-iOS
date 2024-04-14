@@ -11,6 +11,7 @@
     </entity>
     <entity name="Flashcard" representedClassName=".Flashcard" syncable="YES">
         <attribute name="backDescription" optional="YES" attributeType="String"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="flashcardID" optional="YES" attributeType="String"/>
         <attribute name="frontLabel" optional="YES" attributeType="String"/>
         <attribute name="status" optional="YES" attributeType="String"/>
