@@ -20,8 +20,11 @@ extension Deck {
     @NSManaged public var deckID: String?
     @NSManaged public var deckName: String?
     @NSManaged public var lastViewed: Date?
+    @NSManaged public var isFavourited: Bool
     @NSManaged public var totalCards: Int16
     @NSManaged public var flashcards: NSSet?
+    @NSManaged public var createdAt: Date?
+
     
     public var completedCount: Int {
         let set = flashcards as? Set<Flashcard> ?? []

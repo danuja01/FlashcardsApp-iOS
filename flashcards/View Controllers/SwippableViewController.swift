@@ -57,7 +57,6 @@ class SwippableViewController: UIViewController {
 
 
     private func finishQuiz() {
-        // Delay the dismissal to allow the progress bar to update visually
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.dismiss(animated: true, completion: nil)
         }
@@ -79,7 +78,8 @@ extension SwippableViewController: SwappableCardDelegate {
 
         AppDelegate.shared.saveContext()
         
-        NotificationCenter.default.post(name: .didUpdateFlashcards, object: nil)  // Post a custom notification
+        NotificationCenter.default.post(name: .didUpdateFlashcards, object: nil)
+        NotificationCenter.default.post(name: .didUpdateDecks, object: nil)
 
         if currentCardIndex < flashcards.count - 1 {
             currentCardIndex += 1

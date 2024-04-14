@@ -24,6 +24,8 @@ class DeckService {
         newDeck.deckName = deckName
         newDeck.deckDescription = description
         newDeck.lastViewed = Date()
+        newDeck.isFavourited = false
+        newDeck.createdAt = Date()
         AppDelegate.shared.saveContext()
         return newDeck
     }
@@ -43,6 +45,12 @@ class DeckService {
     func updateLastViewed(for deck: Deck) {
         deck.lastViewed = Date()
         AppDelegate.shared.saveContext()
+    }
+    
+    // Update a Deck's 'isFavourited' property
+    func updateFavouriteStatus(for deck: Deck, isFavourited: Bool) {
+        deck.isFavourited = isFavourited
+        AppDelegate.shared.saveContext()  // Save the updated context
     }
 
     // Delete a Deck

@@ -2,9 +2,11 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22757" systemVersion="23B92" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
     <entity name="Deck" representedClassName=".Deck" syncable="YES">
         <attribute name="completedCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="deckDescription" optional="YES" attributeType="String"/>
         <attribute name="deckID" optional="YES" attributeType="String"/>
         <attribute name="deckName" optional="YES" attributeType="String"/>
+        <attribute name="isFavourited" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="lastViewed" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="totalCards" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="flashcards" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Flashcard" inverseName="deck" inverseEntity="Flashcard"/>

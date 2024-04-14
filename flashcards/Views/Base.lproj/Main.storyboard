@@ -341,9 +341,6 @@
                                                                                     <buttonConfiguration key="configuration" style="plain">
                                                                                         <imageReference key="image" image="star" catalog="system" symbolScale="large"/>
                                                                                     </buttonConfiguration>
-                                                                                    <connections>
-                                                                                        <action selector="pressStarBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dOE-oO-ETP"/>
-                                                                                    </connections>
                                                                                 </button>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 TOTAL CARDS | 12 COMPLETED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Su3-g9-N7F">
                                                                                     <rect key="frame" x="20" y="76" width="318" height="16"/>

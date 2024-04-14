@@ -52,15 +52,10 @@ class MyDecksViewController: UIViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        fetchDecks()  // Fetch and refresh the decks every time the view appears
-    }
-    
     @objc private func fetchDecks() {
         allDecks = deckService.fetchAllDecks()
-        allDecks.sort { ($0.lastViewed ?? Date.distantPast) > ($1.lastViewed ?? Date.distantPast) }
-        recentDecks = allDecks.prefix(5).map { $0 }
+        recentDecks = allDecks.sorted { ($0.lastViewed ?? Date.distantPast) > ($1.lastViewed ?? Date.distantPast) }.prefix(5).map { $0 }
+        allDecks.sort { ($0.createdAt ?? Date.distantPast) > ($1.createdAt ?? Date.distantPast) }
         decksTabelView.reloadData()
         recentCollectionView.reloadData()
     }
@@ -72,15 +67,9 @@ class MyDecksViewController: UIViewController {
         }
     }
     
-    
-    @IBAction func pressStarBtn(_ sender: UIButton) {
-        UIView.transition(with: sender, duration: 0.3, options: .transitionCrossDissolve, animations: {
-            if sender.image(for: .normal) == UIImage(systemName: "star.fill") {
-                sender.setImage(UIImage(systemName: "star"), for: .normal)
-            } else {
-                sender.setImage(UIImage(systemName: "star.fill"), for: .normal)
-            }
-        }, completion: nil)
+    func updateAndRefreshUI(for deck: Deck) {
+        deckService.updateLastViewed(for: deck)
+        fetchDecks()  // Optionally, this could be optimized to not require a full fetch
     }
     
     deinit {
@@ -106,6 +95,13 @@ extension MyDecksViewController: UICollectionViewDelegate, UICollectionViewDataS
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let selectedDeck = recentDecks[indexPath.item]
+        updateAndRefreshUI(for: selectedDeck)
+        performSegue(withIdentifier: "presentFlashcards", sender: selectedDeck)
+    }
 }
 
 extension MyDecksViewController: UITableViewDelegate, UITableViewDataSource {
@@ -129,8 +125,32 @@ extension MyDecksViewController: UITableViewDelegate, UITableViewDataSource {
         cell.deckStatLabel.text = "\(deck.flashcards?.count ?? 0) TOTAL CARDS | \(deck.completedCount) COMPLETED"
         cell.descriptionLabel.text = deck.deckDescription
         
+        let isFavorited = deck.isFavourited
+        let favoriteButtonImage = isFavorited ? UIImage(systemName: "star.fill") : UIImage(systemName: "star")
+        cell.favouriteBtn.setImage(favoriteButtonImage, for: .normal)
+
+        cell.favouriteBtn.addTarget(self, action: #selector(toggleFavourite(_:)), for: .touchUpInside)
+        cell.favouriteBtn.tag = indexPath.section
+
         return cell
     }
+    
+    @objc func toggleFavourite(_ sender: UIButton) {
+        let section = sender.tag
+        if section < allDecks.count {
+            let deck = allDecks[section]
+            let newFavouriteStatus = !deck.isFavourited
+            deckService.updateFavouriteStatus(for: deck, isFavourited: newFavouriteStatus)
+
+            UIView.transition(with: sender, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                sender.setImage(newFavouriteStatus ? UIImage(systemName: "star.fill") : UIImage(systemName: "star"), for: .normal)
+            }, completion: nil)
+
+            deck.isFavourited = newFavouriteStatus
+        }
+    }
+
+
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return section == 0 ? 0 : 5
@@ -143,8 +163,11 @@ extension MyDecksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let selectedDeck = allDecks[indexPath.section]
+        updateAndRefreshUI(for: selectedDeck)
         performSegue(withIdentifier: "presentFlashcards", sender: selectedDeck)
     }
+    
+    
     
 }
 
