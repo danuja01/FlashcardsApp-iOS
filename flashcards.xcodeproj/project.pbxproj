@@ -15,6 +15,7 @@
 		AD4B697A2BC9B23900617DBF /* AddNewDeckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4B69792BC9B23900617DBF /* AddNewDeckViewController.swift */; };
 		AD67D1C52BC5981C004C1206 /* RecentDeckCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD67D1C42BC5981C004C1206 /* RecentDeckCollectionViewCell.swift */; };
 		AD899ABA2BCC568100EEB6E1 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD899AB92BCC568100EEB6E1 /* Alert.swift */; };
+		AD899ABC2BCC700D00EEB6E1 /* UITableView+LongPress.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD899ABB2BCC700D00EEB6E1 /* UITableView+LongPress.swift */; };
 		ADBF317B2BCB0E8F006FE0E9 /* Flashcard+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBF31772BCB0E8F006FE0E9 /* Flashcard+CoreDataClass.swift */; };
 		ADBF317C2BCB0E8F006FE0E9 /* Flashcard+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBF31782BCB0E8F006FE0E9 /* Flashcard+CoreDataProperties.swift */; };
 		ADBF317D2BCB0E8F006FE0E9 /* Deck+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBF31792BCB0E8F006FE0E9 /* Deck+CoreDataClass.swift */; };
@@ -50,6 +51,7 @@
 		AD4B69792BC9B23900617DBF /* AddNewDeckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewDeckViewController.swift; sourceTree = "<group>"; };
 		AD67D1C42BC5981C004C1206 /* RecentDeckCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentDeckCollectionViewCell.swift; sourceTree = "<group>"; };
 		AD899AB92BCC568100EEB6E1 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		AD899ABB2BCC700D00EEB6E1 /* UITableView+LongPress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+LongPress.swift"; sourceTree = "<group>"; };
 		ADBF31772BCB0E8F006FE0E9 /* Flashcard+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flashcard+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		ADBF31782BCB0E8F006FE0E9 /* Flashcard+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flashcard+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		ADBF31792BCB0E8F006FE0E9 /* Deck+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Deck+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				ADBF31842BCBBDD9006FE0E9 /* NotificationExtensions.swift */,
+				AD899ABB2BCC700D00EEB6E1 /* UITableView+LongPress.swift */,
 				ADBF31862BCBE64D006FE0E9 /* ViewControllerExtentions.swift */,
 			);
 			path = Extensions;
@@ -306,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD24B6502BCA6CB100168BD7 /* AddNewFlashcardViewController.swift in Sources */,
+				AD899ABC2BCC700D00EEB6E1 /* UITableView+LongPress.swift in Sources */,
 				ADBF31822BCB1940006FE0E9 /* FlashcardService.swift in Sources */,
 				ADBF31872BCBE64D006FE0E9 /* ViewControllerExtentions.swift in Sources */,
 				AD24B64E2BCA689A00168BD7 /* CustomTextView.swift in Sources */,

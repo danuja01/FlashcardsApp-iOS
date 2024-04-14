@@ -25,11 +25,12 @@ class MyDecksViewController: UIViewController {
     
     var deckService: DeckService!
     
-    private var allDecks: [Deck] = []
-    private var recentDecks: [Deck] = []
+    var allDecks: [Deck] = []
+    var recentDecks: [Deck] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupLongPressGesture()
 
         NotificationCenter.default.addObserver(self, selector: #selector(fetchDecks), name: .didUpdateDecks, object: nil)
         
@@ -52,10 +53,9 @@ class MyDecksViewController: UIViewController {
             .store(in: &tokens)
         
         scrollView.delegate = self
-        
     }
     
-    @objc private func fetchDecks() {
+    @objc func fetchDecks() {
         allDecks = deckService.fetchAllDecks()
         recentDecks = allDecks.sorted { ($0.lastViewed ?? Date.distantPast) > ($1.lastViewed ?? Date.distantPast) }.prefix(5).map { $0 }
         allDecks.sort { ($0.createdAt ?? Date.distantPast) > ($1.createdAt ?? Date.distantPast) }
@@ -63,7 +63,6 @@ class MyDecksViewController: UIViewController {
         recentCollectionView.reloadData()
         updateLastVisitedDeckUI()
     }
-
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let detailsVC = segue.destination as? FlashcardsViewController, let deck = sender as? Deck {
