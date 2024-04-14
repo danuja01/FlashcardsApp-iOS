@@ -55,26 +55,38 @@ class AddNewFlashcardViewController: UIViewController {
     }
     
     @IBAction func addAnotherButtonTapped(_ sender: Any) {
-        self.addFlashcardToDeck()
-        self.frontTextView.text = ""
-        self.backTextView.text = ""
+        guard validateTextFields() else { return }
+        addFlashcardToDeck()
+        frontTextView.text = ""
+        backTextView.text = ""
+        Alert.showAlert(on: self, title: "Success", message: "Flashcard added!", actionTitle: "OK")
     }
     
     @IBAction func saveAndCloseButtonTapped(_ sender: Any) {
-        self.addFlashcardToDeck()
-        self.closeSegue()
+        guard validateTextFields() else { return }
+        addFlashcardToDeck()
+        closeSegue()
     }
     
     @IBAction func closeButtonTapped(_ sender: Any) {
         closeSegue()
     }
     
-    private func addFlashcardToDeck() {
-        guard let frontText = frontTextView.text, !frontText.isEmpty,
-              let backText = backTextView.text, !backText.isEmpty else {
-            print("Front or back text is empty")
-            return
+    private func validateTextFields() -> Bool {
+        let frontText = frontTextView.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        let backText = backTextView.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+
+        if frontText.isEmpty || backText.isEmpty {
+            let message = frontText.isEmpty ? "Front text is required." : "Back text is required."
+            Alert.showAlert(on: self, title: "Missing Information", message: message)
+            return false
         }
+        return true
+    }
+    
+    private func addFlashcardToDeck() {
+        let frontText = frontTextView.text!
+        let backText = backTextView.text!
         
         flashcardService.addFlashcard(to: deck, flashcardID: UUID().uuidString, frontLabel: frontText, backDescription: backText, status: "pending")
         AppDelegate.shared.saveContext()
@@ -83,7 +95,6 @@ class AddNewFlashcardViewController: UIViewController {
     
     private func closeSegue() {
         NotificationCenter.default.post(name: .didUpdateDecks, object: nil)
-        
         if isCreatingNewDeck {
             self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
         } else {

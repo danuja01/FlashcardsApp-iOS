@@ -17,6 +17,9 @@ class MyDecksViewController: UIViewController {
     @IBOutlet var tableViewHeight: NSLayoutConstraint!
     @IBOutlet var scrollView: UIScrollView!
     
+    @IBOutlet var lastVisitedDeckProgressBar: UIProgressView!
+    @IBOutlet var lastVisitedDeckName: UILabel!
+    @IBOutlet var lastVisitedDeckStatus: UILabel!
     
     private var tokens: Set<AnyCancellable> = []
     
@@ -58,6 +61,7 @@ class MyDecksViewController: UIViewController {
         allDecks.sort { ($0.createdAt ?? Date.distantPast) > ($1.createdAt ?? Date.distantPast) }
         decksTabelView.reloadData()
         recentCollectionView.reloadData()
+        updateLastVisitedDeckUI()
     }
 
     
@@ -69,9 +73,24 @@ class MyDecksViewController: UIViewController {
     
     func updateAndRefreshUI(for deck: Deck) {
         deckService.updateLastViewed(for: deck)
-        fetchDecks()  // Optionally, this could be optimized to not require a full fetch
+        fetchDecks()
     }
     
+    private func updateLastVisitedDeckUI() {
+        guard let mostRecentDeck = allDecks.max(by: { ($0.lastViewed ?? Date.distantPast) < ($1.lastViewed ?? Date.distantPast) }) else {
+            lastVisitedDeckName.text = "No Decks Visited Yet"
+            lastVisitedDeckStatus.text = "No Data"
+            lastVisitedDeckProgressBar.progress = 0.0
+            return
+        }
+        
+        lastVisitedDeckName.text = mostRecentDeck.deckName
+        lastVisitedDeckStatus.text = "\(mostRecentDeck.flashcards?.count ?? 0) TOTAL CARDS | \(mostRecentDeck.completedCount) COMPLETED"
+        
+        let completionRate = (mostRecentDeck.flashcards?.count ?? 0) > 0 ? Float(mostRecentDeck.completedCount) / Float(mostRecentDeck.flashcards?.count ?? 1) : 0.0
+        lastVisitedDeckProgressBar.setProgress(completionRate, animated: true)
+    }
+
     deinit {
         NotificationCenter.default.removeObserver(self)
     }

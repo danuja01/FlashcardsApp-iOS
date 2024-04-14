@@ -470,6 +470,9 @@
                         <outlet property="blurView" destination="L9g-0d-NpA" id="yVo-Up-rD6"/>
                         <outlet property="cardView" destination="zJB-5v-Kgz" id="WEt-E2-oFr"/>
                         <outlet property="decksTabelView" destination="iHc-5H-G16" id="RIo-vw-ATW"/>
+                        <outlet property="lastVisitedDeckName" destination="WyN-Tz-Xit" id="3zY-rc-P0G"/>
+                        <outlet property="lastVisitedDeckProgressBar" destination="j92-sZ-daQ" id="KB2-Gp-I9T"/>
+                        <outlet property="lastVisitedDeckStatus" destination="rdz-y1-rhg" id="XMG-wE-0sK"/>
                         <outlet property="recentCollectionView" destination="NC8-al-XoI" id="Hym-2B-1T5"/>
                         <outlet property="scrollView" destination="PMr-ZF-UU7" id="VO9-XX-mmq"/>
                         <outlet property="tableViewHeight" destination="j5b-81-pMV" id="0le-RT-niw"/>
@@ -1320,13 +1323,13 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

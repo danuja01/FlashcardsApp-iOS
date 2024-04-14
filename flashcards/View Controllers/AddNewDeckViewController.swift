@@ -55,16 +55,19 @@ class AddNewDeckViewController: UIViewController {
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
-        guard let deckName = deckNameTextField.text, !deckName.isEmpty,
-              let deckDescription = deckDescriptionTextView.text, !deckDescription.isEmpty else {
-            print("Deck name or description is empty")
+        let deckName = deckNameTextField.text ?? ""
+        let deckDescription = deckDescriptionTextView.text ?? ""
+
+        if deckName.isEmpty || deckDescription.isEmpty {
+            let emptyField = deckName.isEmpty ? "Deck Name" : "Deck Description"
+            Alert.showAlert(on: self, title: "Missing Information", message: "\(emptyField) is required. Please fill it out before proceeding.")
             return
         }
-        
+
         let newDeck = deckService.createDeck(deckName: deckName, description: deckDescription)
-        
         performSegue(withIdentifier: "addFlashcardSegue", sender: newDeck)
     }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addFlashcardSegue", let destinationVC = segue.destination as? AddNewFlashcardViewController {

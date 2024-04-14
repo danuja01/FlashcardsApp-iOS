@@ -43,16 +43,6 @@ class SwappableCard: UIView {
     private func setupCard() {
         backgroundColor = .systemBackground
 
-//        let blurEffect = UIBlurEffect(style: .systemUltraThinMaterial)
-//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-//        blurEffectView.frame = bounds
-//        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight] // for supporting device rotation
-//        blurEffectView.layer.cornerRadius = 10
-//        blurEffectView.clipsToBounds = true
-
-//        addSubview(blurEffectView)
-//        sendSubviewToBack(blurEffectView)
-
         layer.cornerRadius = 10
         layer.shadowOpacity = 0.3
         layer.shadowRadius = 5
