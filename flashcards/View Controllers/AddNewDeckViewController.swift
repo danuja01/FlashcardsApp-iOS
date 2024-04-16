@@ -11,9 +11,12 @@ class AddNewDeckViewController: UIViewController {
 
     @IBOutlet var deckNameTextField: UITextField!
     @IBOutlet var deckDescriptionTextView: CustomTextView!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var nextBtn: GradientButton!
     
     var deckService: DeckService!
-    
+    var deckToEdit: Deck?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         deckService = DeckService(context: AppDelegate.getContext())
@@ -25,6 +28,13 @@ class AddNewDeckViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+
+        if let deck = deckToEdit {
+            deckNameTextField.text = deck.deckName
+            deckDescriptionTextView.text = deck.deckDescription
+            titleLabel.text = "EDIT DECK DETAILS"
+            nextBtn.setTitle("Save", for: .normal)
+        }
     }
     
     @objc func dismissKeyboard() {
@@ -57,15 +67,24 @@ class AddNewDeckViewController: UIViewController {
     @IBAction func nextButtonTapped(_ sender: Any) {
         let deckName = deckNameTextField.text ?? ""
         let deckDescription = deckDescriptionTextView.text ?? ""
-
+        
         if deckName.isEmpty || deckDescription.isEmpty {
             let emptyField = deckName.isEmpty ? "Deck Name" : "Deck Description"
             Alert.showAlert(on: self, title: "Missing Information", message: "\(emptyField) is required. Please fill it out before proceeding.")
             return
         }
-
-        let newDeck = deckService.createDeck(deckName: deckName, description: deckDescription)
-        performSegue(withIdentifier: "addFlashcardSegue", sender: newDeck)
+        
+        if let deck = deckToEdit {
+            // Update the existing deck
+            print("meka")
+            deckService.updateDeck(deck: deck, newName: deckName, newDescription: deckDescription)
+            NotificationCenter.default.post(name: .didUpdateDecks, object: nil)
+            dismiss(animated: true, completion: nil)
+        } else {
+            // Create a new deck
+            let newDeck = deckService.createDeck(deckName: deckName, description: deckDescription)
+            performSegue(withIdentifier: "addFlashcardSegue", sender: newDeck)
+        }
     }
 
     

@@ -8,7 +8,7 @@
 import UIKit
 
 extension MyDecksViewController {
-    
+
     func setupLongPressGesture() {
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(gestureRecognizer:)))
         longPressRecognizer.minimumPressDuration = 0.5
@@ -45,8 +45,11 @@ extension MyDecksViewController {
     }
     
     func editDeck(at indexPath: IndexPath) {
-        let deck = allDecks[indexPath.section]
-        print("Editing \(deck.deckName ?? "")")
+        let selectedDeck = allDecks[indexPath.section]
+        guard let viewController = storyboard?.instantiateViewController(withIdentifier: "AddNewDeckViewController") as? AddNewDeckViewController else { return }
+        viewController.deckToEdit = selectedDeck
+        viewController.modalPresentationStyle = .formSheet
+        self.present(viewController, animated: true, completion: nil)
     }
     
     func deleteDeck(at indexPath: IndexPath) {
@@ -56,8 +59,8 @@ extension MyDecksViewController {
         decksTabelView.deleteSections(IndexSet(integer: indexPath.section), with: .automatic)
 
         // Add a delay before refreshing the UI
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { // Adjust the delay time as needed, here it's set to 0.5 seconds
-            self.fetchDecks()  // Refresh the UI
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.fetchDecks()
         }
     }
 }
