@@ -31,39 +31,51 @@ cd flashcards-app
 open Flashcards.xcodeproj
 ```
 
-Run the project on your preferred simulator or real device running iOS 13.0 or later.
+Run the project on your preferred simulator or real device running iOS 16.0 or later.
 
 ## Screenshots
 
 ### Main Interface
 
-![Main Interface - Dark Mode](/screenshots/1.png)
-![Main Interface - Light Mode](/screenshots/1a.png)
+<p float="left">
+  <img src="/screenshots/1.png" width="49%" />
+  <img src="/screenshots/1a.png" width="49%" /> 
+</p>
 
 ### Favourited Decks
 
-![Deck Overview - Dark Mode](/screenshots/2.png)
-![Deck Overview - Light Mode](/screenshots/2a.png)
+<p float="left">
+  <img src="/screenshots/2.png" width="49%" />
+  <img src="/screenshots/2a.png" width="49%" />
+</p>
 
 ### Flashcards Page
 
-![Flashcard Study Session - Dark Mode](/screenshots/3.png)
-![Flashcard Study Session - Light Mode](/screenshots/3a.png)
+<p float="left">
+  <img src="/screenshots/3.png" width="49%" />
+  <img src="/screenshots/3a.png" width="49%" />
+</p>
 
 ### Flashcard Practice Sessions
 
-![Flashcard Editing - Dark Mode](/screenshots/4.png)
-![Flashcard Editing - Light Mode](/screenshots/4a.png)
+<p float="left">
+  <img src="/screenshots/4.png" width="49%" />
+  <img src="/screenshots/4a.png" width="49%" />
+</p>
 
 ### Add New Deck Page
 
-![Statistics View - Dark Mode](/screenshots/5.png)
-![Statistics View - Light Mode](/screenshots/5a.png)
+<p float="left">
+  <img src="/screenshots/5.png" width="49%" />
+  <img src="/screenshots/5a.png" width="49%" />
+</p>
 
 ### Add new Flashcards Page
 
-![Settings Menu - Dark Mode](/screenshots/6.png)
-![Settings Menu - Light Mode](/screenshots/6a.png)
+<p float="left">
+  <img src="/screenshots/6.png" width="49%" />
+  <img src="/screenshots/6a.png" width="49%" />
+</p>
 
 Each pair of screenshots shows the dark and light mode variations, providing a comprehensive view of the app's thematic adaptability.
 
