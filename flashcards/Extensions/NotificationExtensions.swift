@@ -11,4 +11,5 @@ import UIKit
 extension Notification.Name {
     static let didUpdateDecks = Notification.Name("didUpdateDecks")
     static let didUpdateFlashcards = Notification.Name("didUpdateFlashcards")
+    static let didUpdateFavourites = Notification.Name("didUpdateFavourites")
 }

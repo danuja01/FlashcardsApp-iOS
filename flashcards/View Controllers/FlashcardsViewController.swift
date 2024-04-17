@@ -15,7 +15,6 @@ class FlashcardsViewController: UIViewController {
     @IBOutlet var deckTitle: UILabel!
     @IBOutlet var deckStat: UILabel!
     @IBOutlet var deckDescription: UILabel!
-    
     @IBOutlet var flashcardsTabelView: UITableView!
     @IBOutlet var tableViewHeight: NSLayoutConstraint!
     
@@ -24,9 +23,10 @@ class FlashcardsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         NotificationCenter.default.addObserver(self, selector: #selector(updateFlashcardData), name: .didUpdateDecks, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateFlashcardData), name: .didUpdateFlashcards, object: nil)
-
+        
         setupTableView()
         updateUI()
     }
@@ -39,7 +39,7 @@ class FlashcardsViewController: UIViewController {
         if segue.identifier == "addFlashcardSegue", let destinationVC = segue.destination as? AddNewFlashcardViewController, let deck = sender as? Deck {
             destinationVC.deck = deck
             destinationVC.flashcardService = FlashcardService(context: AppDelegate.getContext())
-            destinationVC.isCreatingNewDeck = false  
+            destinationVC.isCreatingNewDeck = false
         }
     }
     
@@ -51,11 +51,11 @@ class FlashcardsViewController: UIViewController {
         updateUI()
     }
     
-    private func updateUI() {
+    func updateUI() {
         self.deckTitle.text = deck?.deckName
         self.deckStat.text = "\(deck?.flashcards?.count ?? 0) TOTAL | \(deck?.completedCount ?? 0) COMPLETED"
         self.deckDescription.text = deck?.deckDescription
-
+        
         flashcardsTabelView.reloadData()
     }
     
@@ -88,27 +88,4 @@ class FlashcardsViewController: UIViewController {
     }
 }
 
-extension FlashcardsViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return deck?.flashcards?.count ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FlashcardCell", for: indexPath) as! FlashcardTableViewCell
-        
-        if let flashcards = deck?.flashcards?.allObjects as? [Flashcard] {
-            let sortedFlashcards = flashcards.sorted(by: { ($0.createdAt) > ($1.createdAt) })
-            let flashcard = sortedFlashcards[indexPath.row]
-
-            cell.frontLabel.text = flashcard.frontLabel
-            cell.backLabel.text = flashcard.backDescription
-        }
-
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-}
 

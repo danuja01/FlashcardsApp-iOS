@@ -10,6 +10,7 @@ import UIKit
 class AddNewFlashcardViewController: UIViewController {
     
     var isCreatingNewDeck: Bool = false
+    var flashcardToEdit: Flashcard?
     
     @IBOutlet var frontTextView: CustomTextView!
     @IBOutlet var backTextView: CustomTextView!
@@ -19,6 +20,11 @@ class AddNewFlashcardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let flashcard = flashcardToEdit {
+            frontTextView.text = flashcard.frontLabel
+            backTextView.text = flashcard.backDescription
+        }
         
         frontTextView.delegate = self
         backTextView.delegate = self
@@ -88,13 +94,24 @@ class AddNewFlashcardViewController: UIViewController {
         let frontText = frontTextView.text!
         let backText = backTextView.text!
         
-        flashcardService.addFlashcard(to: deck, flashcardID: UUID().uuidString, frontLabel: frontText, backDescription: backText, status: "pending")
+        if let flashcard = flashcardToEdit {
+            // Update existing flashcard
+            flashcard.frontLabel = frontText
+            flashcard.backDescription = backText
+        } else {
+            // Add new flashcard
+            flashcardService.addFlashcard(to: deck, flashcardID: UUID().uuidString, frontLabel: frontText, backDescription: backText, status: "pending")
+        }
+        
         AppDelegate.shared.saveContext()
         NotificationCenter.default.post(name: .didUpdateDecks, object: nil)
+        NotificationCenter.default.post(name: .didUpdateFavourites, object: nil)
     }
+
     
     private func closeSegue() {
         NotificationCenter.default.post(name: .didUpdateDecks, object: nil)
+        NotificationCenter.default.post(name: .didUpdateFavourites, object: nil)
         if isCreatingNewDeck {
             self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
         } else {

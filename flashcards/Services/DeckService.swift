@@ -23,7 +23,7 @@ class DeckService {
         newDeck.deckID = UUID().uuidString
         newDeck.deckName = deckName
         newDeck.deckDescription = description
-        newDeck.lastViewed = Date()
+        newDeck.lastViewed = nil
         newDeck.isFavourited = false
         newDeck.createdAt = Date()
         AppDelegate.shared.saveContext()
@@ -57,7 +57,6 @@ class DeckService {
     func updateDeck(deck: Deck, newName: String, newDescription: String) {
         deck.deckName = newName
         deck.deckDescription = newDescription
-        deck.lastViewed = Date()  // Optionally update last viewed date on edit
         AppDelegate.shared.saveContext()
     }
 

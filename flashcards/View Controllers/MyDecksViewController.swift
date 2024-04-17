@@ -57,7 +57,7 @@ class MyDecksViewController: UIViewController {
     
     @objc func fetchDecks() {
         allDecks = deckService.fetchAllDecks()
-        recentDecks = allDecks.sorted { ($0.lastViewed ?? Date.distantPast) > ($1.lastViewed ?? Date.distantPast) }.prefix(5).map { $0 }
+        recentDecks = allDecks.sorted { ($0.lastViewed ?? Date.distantPast) > ($1.lastViewed ?? Date.distantPast) }.prefix(3).map { $0 }
         allDecks.sort { ($0.createdAt ?? Date.distantPast) > ($1.createdAt ?? Date.distantPast) }
         decksTabelView.reloadData()
         recentCollectionView.reloadData()

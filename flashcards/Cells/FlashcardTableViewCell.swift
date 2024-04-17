@@ -11,10 +11,11 @@ class FlashcardTableViewCell: UITableViewCell {
 
     @IBOutlet var frontLabel: UILabel!
     @IBOutlet var backLabel: UILabel!
+    @IBOutlet var completedIcon: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        completedIcon.isHidden = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

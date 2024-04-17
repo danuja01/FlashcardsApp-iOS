@@ -80,6 +80,7 @@ extension SwippableViewController: SwappableCardDelegate {
         
         NotificationCenter.default.post(name: .didUpdateFlashcards, object: nil)
         NotificationCenter.default.post(name: .didUpdateDecks, object: nil)
+        NotificationCenter.default.post(name: .didUpdateFavourites, object: nil)
 
         if currentCardIndex < flashcards.count - 1 {
             currentCardIndex += 1

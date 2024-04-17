@@ -76,9 +76,9 @@ class AddNewDeckViewController: UIViewController {
         
         if let deck = deckToEdit {
             // Update the existing deck
-            print("meka")
             deckService.updateDeck(deck: deck, newName: deckName, newDescription: deckDescription)
             NotificationCenter.default.post(name: .didUpdateDecks, object: nil)
+            NotificationCenter.default.post(name: .didUpdateFavourites, object: nil)
             dismiss(animated: true, completion: nil)
         } else {
             // Create a new deck

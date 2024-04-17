@@ -15,7 +15,7 @@ extension MyDecksViewController: UIScrollViewDelegate {
         let precentage = lastScrollYPos / contentHeight
         
         if precentage < 0.07 {
-            self.title = "Featured"
+            self.title = "My Decks"
         } else if precentage <= 0.2 {
             self.title = "Recent Decks"
         } else {

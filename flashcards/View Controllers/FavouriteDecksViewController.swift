@@ -24,6 +24,8 @@ class FavouriteDecksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         deckService = DeckService(context: AppDelegate.getContext())
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(fetchFavouriteDecks), name: .didUpdateFavourites, object: nil)
 
         decksTableView.delegate = self
         decksTableView.dataSource = self
@@ -41,63 +43,44 @@ class FavouriteDecksViewController: UIViewController {
         scrollView.delegate = self
     }
     
-    func fetchFavouriteDecks() {
-        let allDecks = deckService.fetchAllDecks()
-        favouriteDecks = allDecks.filter { $0.isFavourited }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let detailsVC = segue.destination as? FlashcardsViewController, let deck = sender as? Deck {
+            detailsVC.deck = deck
+        }
+    }
+    
+    @objc func fetchFavouriteDecks() {
+        favouriteDecks = deckService.fetchAllDecks().filter { $0.isFavourited }
         decksTableView.reloadData()
     }
-
+    
     @objc func toggleFavourite(_ sender: UIButton) {
         let section = sender.tag
         if section < favouriteDecks.count {
             let deck = favouriteDecks[section]
-            deck.isFavourited = !deck.isFavourited
-            deckService.updateFavouriteStatus(for: deck, isFavourited: deck.isFavourited)
-
+            deck.isFavourited = false
+            deckService.updateFavouriteStatus(for: deck, isFavourited: false)
+            
             UIView.transition(with: sender, duration: 0.3, options: .transitionCrossDissolve, animations: {
-                sender.setImage(deck.isFavourited ? UIImage(systemName: "star.fill") : UIImage(systemName: "star"), for: .normal)
+                sender.setImage(UIImage(systemName: "star"), for: .normal)
             }, completion: { _ in
-                self.fetchFavouriteDecks() 
+
+                self.decksTableView.beginUpdates()
+                self.favouriteDecks.remove(at: section)
+                self.decksTableView.deleteSections(IndexSet(integer: section), with: .fade)
+                self.decksTableView.endUpdates()
+
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+                    NotificationCenter.default.post(name: .didUpdateFavourites, object: nil)
+                    NotificationCenter.default.post(name: .didUpdateDecks, object: nil)
+                }
             })
         }
     }
-}
-
-extension FavouriteDecksViewController: UITableViewDelegate, UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return favouriteDecks.count
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DecksTableCell", for: indexPath) as! DecksTableViewCell
-        
-        let deck = favouriteDecks[indexPath.section]
-        
-        cell.titleLabel.text = deck.deckName
-        cell.deckStatLabel.text = "\(deck.flashcards?.count ?? 0) TOTAL CARDS | \(deck.completedCount) COMPLETED"
-        cell.descriptionLabel.text = deck.deckDescription
-        
-        let isFavorited = deck.isFavourited
-        let favoriteButtonImage = isFavorited ? UIImage(systemName: "star.fill") : UIImage(systemName: "star")
-        cell.favouriteBtn.setImage(favoriteButtonImage, for: .normal)
-
-        cell.favouriteBtn.addTarget(self, action: #selector(toggleFavourite(_:)), for: .touchUpInside)
-        cell.favouriteBtn.tag = indexPath.section
-
-        return cell
-    }
     
-
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 0 ? 0 : 5
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-    }
 }
+

@@ -61,7 +61,7 @@ extension MyDecksViewController {
         // Add a delay before refreshing the UI
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.fetchDecks()
+            NotificationCenter.default.post(name: .didUpdateFavourites, object: nil)
         }
     }
 }
-

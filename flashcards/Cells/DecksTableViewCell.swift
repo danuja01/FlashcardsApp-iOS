@@ -16,6 +16,12 @@ class DecksTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+
+        setupShadowAndRadius()
+               setupSelectionBackground()
+    }
+    
+    private func setupShadowAndRadius() {
         layer.shadowColor = UIColor(named: "Shadow")!.cgColor
         layer.shadowOpacity = 0.25
         layer.shadowOffset = CGSize(width: 0, height: 5)
@@ -28,8 +34,15 @@ class DecksTableViewCell: UITableViewCell {
         titleLabel.adjustsFontForContentSizeCategory = true
         titleLabel.maximumContentSizeCategory = .extraExtraLarge
         titleLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
-        
-        
+    }
+    
+    private func setupSelectionBackground() {
+        let selectionView = UIView(frame: CGRect.zero)
+        selectionView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
+        selectionView.layer.cornerRadius = 30
+        selectionView.layer.masksToBounds = false
+        selectionView.layer.cornerCurve = .continuous
+        selectedBackgroundView = selectionView
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

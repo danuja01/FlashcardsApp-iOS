@@ -29,7 +29,9 @@ extension MyDecksViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         let selectedDeck = recentDecks[indexPath.item]
-        updateAndRefreshUI(for: selectedDeck)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.updateAndRefreshUI(for: selectedDeck)
+        }
         performSegue(withIdentifier: "presentFlashcards", sender: selectedDeck)
     }
 }

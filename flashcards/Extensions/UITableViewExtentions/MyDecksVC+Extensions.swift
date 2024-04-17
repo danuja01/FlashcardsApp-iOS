@@ -45,6 +45,10 @@ extension MyDecksViewController: UITableViewDelegate, UITableViewDataSource {
             let newFavouriteStatus = !deck.isFavourited
             deckService.updateFavouriteStatus(for: deck, isFavourited: newFavouriteStatus)
 
+            NotificationCenter.default.post(name: .didUpdateFavourites, object: nil)
+            NotificationCenter.default.post(name: .didUpdateDecks, object: nil)
+            NotificationCenter.default.post(name: .didUpdateFavourites, object: nil)
+
             UIView.transition(with: sender, duration: 0.3, options: .transitionCrossDissolve, animations: {
                 sender.setImage(newFavouriteStatus ? UIImage(systemName: "star.fill") : UIImage(systemName: "star"), for: .normal)
             }, completion: nil)
@@ -52,8 +56,6 @@ extension MyDecksViewController: UITableViewDelegate, UITableViewDataSource {
             deck.isFavourited = newFavouriteStatus
         }
     }
-
-
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return section == 0 ? 0 : 5
@@ -69,7 +71,5 @@ extension MyDecksViewController: UITableViewDelegate, UITableViewDataSource {
         updateAndRefreshUI(for: selectedDeck)
         performSegue(withIdentifier: "presentFlashcards", sender: selectedDeck)
     }
-    
-    
-    
 }
+
