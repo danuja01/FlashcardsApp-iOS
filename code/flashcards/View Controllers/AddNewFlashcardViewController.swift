@@ -14,6 +14,8 @@ class AddNewFlashcardViewController: UIViewController {
     
     @IBOutlet var frontTextView: CustomTextView!
     @IBOutlet var backTextView: CustomTextView!
+    @IBOutlet var mainButton: GradientButton!
+    @IBOutlet var saveNdCloseBtn: UIButton!
     
     var deck: Deck!
     var flashcardService: FlashcardService!
@@ -24,6 +26,8 @@ class AddNewFlashcardViewController: UIViewController {
         if let flashcard = flashcardToEdit {
             frontTextView.text = flashcard.frontLabel
             backTextView.text = flashcard.backDescription
+            mainButton.setTitle("Save", for: .normal)
+            saveNdCloseBtn.isHidden = true
         }
         
         frontTextView.delegate = self
@@ -63,9 +67,13 @@ class AddNewFlashcardViewController: UIViewController {
     @IBAction func addAnotherButtonTapped(_ sender: Any) {
         guard validateTextFields() else { return }
         addFlashcardToDeck()
-        frontTextView.text = ""
-        backTextView.text = ""
-        Alert.showAlert(on: self, title: "Success", message: "Flashcard added!", actionTitle: "OK")
+        if (flashcardToEdit != nil) {
+            closeSegue()
+        } else {
+            frontTextView.text = ""
+            backTextView.text = ""
+            Alert.showAlert(on: self, title: "Success", message: "Flashcard added!", actionTitle: "OK")
+        }
     }
     
     @IBAction func saveAndCloseButtonTapped(_ sender: Any) {
