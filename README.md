@@ -1,93 +1,76 @@
-# Flashcards App
+Please go under edit and edit this file as needed for your project. There is no seperate documentation needed.
 
-## Overview
+# Project Name -
 
-The Flashcards App is a mobile application designed to assist users in learning and memorization through the use of digital flashcards. With a focus on simplicity and user experience, this app allows users to create, edit, and study from sets of flashcards, each representing a topic or a subject of interest.
+# Student Id -
 
-## Features
+# Student Name -
 
-- **Create Decks**: Users can create multiple decks for different subjects or topics, each with a unique name and description.
-- **Add Flashcards**: Each deck can contain numerous flashcards with a front (question or prompt) and back (answer or information).
-- **Study Mode**: Engage in a study session where flashcards are presented, allowing for spaced repetition and active recall.
-- **Track Progress**: The app tracks viewing history and provides statistics on learning progress.
-- **Favourites**: Users can mark decks as favourites for quick access.
-- **Long Press Actions**: Long pressing on a deck or flashcard allows editing or deleting, providing a smooth user interaction.
-- **Adaptive UI**: The app features a responsive UI that adapts to device orientation and screen size, ensuring a consistent experience across all devices.
+#### 01. Brief Description of Project -
 
-## Technical Stack
+#### 02. Users of the System -
 
-- **Language**: Swift
-- **Frameworks**: UIKit, Combine for reactive programming
-- **Data Management**: CoreData for local data persistence
-- **Design Pattern**: MVC (Model-View-Controller) for clean architecture
+#### 03. What is unique about your solution -
 
-## Getting Started
+#### 04. Briefly document the functionality of the screens you have (Include screen shots of images)
 
-Clone the repository and open the project in Xcode to start:
+e.g. The first screen is used to capture a photo and it will be then processed for identifying the landmarks in the photo.
 
-```bash
-git clone https://github.com/yourusername/flashcards-app.git
-cd flashcards-app
-open Flashcards.xcodeproj
+![Screen 1](Resources/screen01.png)
+
+#### 05. Give examples of best practices used when writing code
+
+e.g The code below uses consistant naming conventions for variables, uses structures and constants where ever possible. (Elaborate a bit more on what you did)
+
+```
+  struct User {
+    let firstName: String
+    let lastName: String
+    let age: Int
+    let email: String?
+
+    init(firstName: String, lastName: String, age: Int, email: String? = nil) {
+        self.firstName = firstName
+        self.lastName = lastName
+        self.age = age
+        self.email = email
+    }
+
+    func sendEmail(to recipient: String, subject: String, message: String) {
+        guard let email = self.email else {
+            print("Cannot send email. No email address on file.")
+            return
+        }
+
+        // Code to send email goes here
+        print("Sending email to \(recipient) from \(email) with subject: \(subject)")
+        print("Message: \(message)")
+    }
+}
 ```
 
-Run the project on your preferred simulator or real device running iOS 16.0 or later.
+#### 06. UI Components used
 
-## Screenshots
+e.g. The following components were used in the Landmark Identify App, UIButton, UIAlert, UIViewController, UINavigationController
 
-### Main Interface
+#### 07. Testing carried out
 
-<p float="left">
-  <img src="/screenshots/1.png" width="49%" />
-  <img src="/screenshots/1a.png" width="49%" /> 
-</p>
+e.g. The following classes implemented unit testing for the `Landmark struct` and `Location struct`.
 
-### Favourited Decks
+```
+    struct TestLandMarks {
+       let name: String
+```
 
-<p float="left">
-  <img src="/screenshots/2.png" width="49%" />
-  <img src="/screenshots/2a.png" width="49%" />
-</p>
+#### 08. Documentation
 
-### Flashcards Page
+(a) Design Choices
 
-<p float="left">
-  <img src="/screenshots/3.png" width="49%" />
-  <img src="/screenshots/3a.png" width="49%" />
-</p>
+(b) Implementation Decisions
 
-### Flashcard Practice Sessions
+(c) Challenges
 
-<p float="left">
-  <img src="/screenshots/4.png" width="49%" />
-  <img src="/screenshots/4a.png" width="49%" />
-</p>
+#### 09. Reflection
 
-### Add New Deck Page
-
-<p float="left">
-  <img src="/screenshots/5.png" width="49%" />
-  <img src="/screenshots/5a.png" width="49%" />
-</p>
-
-### Add new Flashcards Page
-
-<p float="left">
-  <img src="/screenshots/6.png" width="49%" />
-  <img src="/screenshots/6a.png" width="49%" />
-</p>
-
-Each pair of screenshots shows the dark and light mode variations, providing a comprehensive view of the app's thematic adaptability.
-
-## Contributions
-
-Contributions are welcome. Please fork the repository and submit a pull request with your features or fixes.
-
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
-## Contact
-
-Your Name – [@DanujaJayasuri3](https://twitter.com/DanujaJayasuri3) - todanuja01@gmail.com  
-Project Link: [https://github.com/danuja01/FlashcardsApp-iOS](https://github.com/danuja01/FlashcardsApp-iOS)
+Challenges that you faced in doing the assingment (other than know technical issues of getting hold of a proper Mac machine).
+How would have approached this Assignment differently
