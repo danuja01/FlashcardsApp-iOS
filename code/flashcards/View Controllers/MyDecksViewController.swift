@@ -70,7 +70,7 @@ class MyDecksViewController: UIViewController {
         }
     }
     
-    private func updateLastVisitedDeckUI() {
+     func updateLastVisitedDeckUI() {
         guard let mostRecentDeck = allDecks.max(by: { ($0.lastViewed ?? Date.distantPast) < ($1.lastViewed ?? Date.distantPast) }) else {
             lastVisitedDeckName.text = "No Decks Visited Yet"
             lastVisitedDeckStatus.text = "No Data"
