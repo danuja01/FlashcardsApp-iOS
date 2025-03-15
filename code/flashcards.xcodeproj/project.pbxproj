@@ -10,6 +10,11 @@
 		AD24B64E2BCA689A00168BD7 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD24B64D2BCA689A00168BD7 /* CustomTextView.swift */; };
 		AD24B6502BCA6CB100168BD7 /* AddNewFlashcardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD24B64F2BCA6CB100168BD7 /* AddNewFlashcardViewController.swift */; };
 		AD2971652BC67BBB00CC052C /* FlashcardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2971642BC67BBB00CC052C /* FlashcardsViewController.swift */; };
+		AD43728D2BD833460059987B /* flashcardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD43728C2BD833460059987B /* flashcardsTests.swift */; };
+		AD43729A2BD835240059987B /* flashcardsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4372992BD835240059987B /* flashcardsUITests.swift */; };
+		AD43729C2BD835240059987B /* flashcardsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD43729B2BD835240059987B /* flashcardsUITestsLaunchTests.swift */; };
+		AD4372A62BD83B660059987B /* MockDeckService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4372A42BD83B150059987B /* MockDeckService.swift */; };
+		AD4372AC2BD8428A0059987B /* TestingUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4372AA2BD8426A0059987B /* TestingUtilities.swift */; };
 		AD455B182BC8127600CC7410 /* ToastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD455B172BC8127600CC7410 /* ToastManager.swift */; };
 		AD48BF1A2BC5CBAC009210D4 /* DecksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD48BF192BC5CBAC009210D4 /* DecksTableViewCell.swift */; };
 		AD4B697A2BC9B23900617DBF /* AddNewDeckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4B69792BC9B23900617DBF /* AddNewDeckViewController.swift */; };
@@ -48,10 +53,34 @@
 		ADF3D4AB2BC53E2300437535 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3D4A62BC53E2300437535 /* Font.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		AD43728E2BD833460059987B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ADF3D4832BC5203F00437535 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ADF3D48A2BC5203F00437535;
+			remoteInfo = flashcards;
+		};
+		AD43729D2BD835240059987B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ADF3D4832BC5203F00437535 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ADF3D48A2BC5203F00437535;
+			remoteInfo = flashcards;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		AD24B64D2BCA689A00168BD7 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		AD24B64F2BCA6CB100168BD7 /* AddNewFlashcardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewFlashcardViewController.swift; sourceTree = "<group>"; };
 		AD2971642BC67BBB00CC052C /* FlashcardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsViewController.swift; sourceTree = "<group>"; };
+		AD43728A2BD833460059987B /* flashcardsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = flashcardsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD43728C2BD833460059987B /* flashcardsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flashcardsTests.swift; sourceTree = "<group>"; };
+		AD4372972BD835240059987B /* flashcardsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = flashcardsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD4372992BD835240059987B /* flashcardsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flashcardsUITests.swift; sourceTree = "<group>"; };
+		AD43729B2BD835240059987B /* flashcardsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flashcardsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		AD4372A42BD83B150059987B /* MockDeckService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDeckService.swift; sourceTree = "<group>"; };
+		AD4372AA2BD8426A0059987B /* TestingUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingUtilities.swift; sourceTree = "<group>"; };
 		AD455B172BC8127600CC7410 /* ToastManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastManager.swift; sourceTree = "<group>"; };
 		AD48BF192BC5CBAC009210D4 /* DecksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecksTableViewCell.swift; sourceTree = "<group>"; };
 		AD4B69792BC9B23900617DBF /* AddNewDeckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewDeckViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +122,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AD4372872BD833460059987B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD4372942BD835240059987B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ADF3D4882BC5203F00437535 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -104,6 +147,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD43728B2BD833460059987B /* flashcardsTests */ = {
+			isa = PBXGroup;
+			children = (
+				AD4372AD2BD842D60059987B /* Utilities */,
+				AD4372A32BD838310059987B /* Mocks */,
+				AD43728C2BD833460059987B /* flashcardsTests.swift */,
+			);
+			path = flashcardsTests;
+			sourceTree = "<group>";
+		};
+		AD4372982BD835240059987B /* flashcardsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AD4372992BD835240059987B /* flashcardsUITests.swift */,
+				AD43729B2BD835240059987B /* flashcardsUITestsLaunchTests.swift */,
+			);
+			path = flashcardsUITests;
+			sourceTree = "<group>";
+		};
+		AD4372A22BD837FE0059987B /* tests */ = {
+			isa = PBXGroup;
+			children = (
+				AD43728B2BD833460059987B /* flashcardsTests */,
+				AD4372982BD835240059987B /* flashcardsUITests */,
+			);
+			path = tests;
+			sourceTree = "<group>";
+		};
+		AD4372A32BD838310059987B /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				AD4372A42BD83B150059987B /* MockDeckService.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		AD4372AD2BD842D60059987B /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				AD4372AA2BD8426A0059987B /* TestingUtilities.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		AD67D1C32BC58C74004C1206 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +288,7 @@
 		ADF3D4822BC5203F00437535 = {
 			isa = PBXGroup;
 			children = (
+				AD4372A22BD837FE0059987B /* tests */,
 				ADF3D48D2BC5203F00437535 /* flashcards */,
 				ADF3D48C2BC5203F00437535 /* Products */,
 				ADE802272BCAF06F00C87EBA /* Frameworks */,
@@ -211,6 +299,8 @@
 			isa = PBXGroup;
 			children = (
 				ADF3D48B2BC5203F00437535 /* flashcards.app */,
+				AD43728A2BD833460059987B /* flashcardsTests.xctest */,
+				AD4372972BD835240059987B /* flashcardsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -266,6 +356,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		AD4372892BD833460059987B /* flashcardsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD4372922BD833460059987B /* Build configuration list for PBXNativeTarget "flashcardsTests" */;
+			buildPhases = (
+				AD4372862BD833460059987B /* Sources */,
+				AD4372872BD833460059987B /* Frameworks */,
+				AD4372882BD833460059987B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AD43728F2BD833460059987B /* PBXTargetDependency */,
+			);
+			name = flashcardsTests;
+			productName = flashcardsTests;
+			productReference = AD43728A2BD833460059987B /* flashcardsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AD4372962BD835240059987B /* flashcardsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD43729F2BD835240059987B /* Build configuration list for PBXNativeTarget "flashcardsUITests" */;
+			buildPhases = (
+				AD4372932BD835240059987B /* Sources */,
+				AD4372942BD835240059987B /* Frameworks */,
+				AD4372952BD835240059987B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AD43729E2BD835240059987B /* PBXTargetDependency */,
+			);
+			name = flashcardsUITests;
+			productName = flashcardsUITests;
+			productReference = AD4372972BD835240059987B /* flashcardsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		ADF3D48A2BC5203F00437535 /* flashcards */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = ADF3D49F2BC5204100437535 /* Build configuration list for PBXNativeTarget "flashcards" */;
@@ -293,6 +419,14 @@
 				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
+					AD4372892BD833460059987B = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = ADF3D48A2BC5203F00437535;
+					};
+					AD4372962BD835240059987B = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = ADF3D48A2BC5203F00437535;
+					};
 					ADF3D48A2BC5203F00437535 = {
 						CreatedOnToolsVersion = 15.3;
 					};
@@ -312,11 +446,27 @@
 			projectRoot = "";
 			targets = (
 				ADF3D48A2BC5203F00437535 /* flashcards */,
+				AD4372892BD833460059987B /* flashcardsTests */,
+				AD4372962BD835240059987B /* flashcardsUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AD4372882BD833460059987B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD4372952BD835240059987B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ADF3D4892BC5203F00437535 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -330,6 +480,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AD4372862BD833460059987B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD4372A62BD83B660059987B /* MockDeckService.swift in Sources */,
+				AD43728D2BD833460059987B /* flashcardsTests.swift in Sources */,
+				AD4372AC2BD8428A0059987B /* TestingUtilities.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD4372932BD835240059987B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD43729A2BD835240059987B /* flashcardsUITests.swift in Sources */,
+				AD43729C2BD835240059987B /* flashcardsUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ADF3D4872BC5203F00437535 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -374,6 +543,19 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		AD43728F2BD833460059987B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ADF3D48A2BC5203F00437535 /* flashcards */;
+			targetProxy = AD43728E2BD833460059987B /* PBXContainerItemProxy */;
+		};
+		AD43729E2BD835240059987B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ADF3D48A2BC5203F00437535 /* flashcards */;
+			targetProxy = AD43729D2BD835240059987B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		ADF3D4942BC5203F00437535 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -394,6 +576,92 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		AD4372902BD833460059987B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L2LDQS9L5L;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MACOSX_DEPLOYMENT_TARGET = 14.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.danuja.flashcardsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/flashcards.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/flashcards";
+			};
+			name = Debug;
+		};
+		AD4372912BD833460059987B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L2LDQS9L5L;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MACOSX_DEPLOYMENT_TARGET = 14.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.danuja.flashcardsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/flashcards.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/flashcards";
+			};
+			name = Release;
+		};
+		AD4372A02BD835240059987B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L2LDQS9L5L;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MACOSX_DEPLOYMENT_TARGET = 14.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.danuja.flashcardsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = flashcards;
+			};
+			name = Debug;
+		};
+		AD4372A12BD835240059987B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L2LDQS9L5L;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MACOSX_DEPLOYMENT_TARGET = 14.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.danuja.flashcardsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = flashcards;
+			};
+			name = Release;
+		};
 		ADF3D49D2BC5204100437535 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -574,6 +842,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AD4372922BD833460059987B /* Build configuration list for PBXNativeTarget "flashcardsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD4372902BD833460059987B /* Debug */,
+				AD4372912BD833460059987B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD43729F2BD835240059987B /* Build configuration list for PBXNativeTarget "flashcardsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD4372A02BD835240059987B /* Debug */,
+				AD4372A12BD835240059987B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		ADF3D4862BC5203F00437535 /* Build configuration list for PBXProject "flashcards" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

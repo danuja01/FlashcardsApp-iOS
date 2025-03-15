@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="bottomRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background01" translatesAutoresizingMaskIntoConstraints="NO" id="7T9-wJ-OaC">
-                                        <rect key="frame" x="0.0" y="-143" width="390" height="464.66666666666674"/>
+                                        <rect key="frame" x="0.0" y="-143" width="390" height="464.66666666666669"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zJB-5v-Kgz" customClass="CustomView" customModule="flashcards" customModuleProvider="target">
                                         <rect key="frame" x="16" y="20" width="358" height="150"/>
@@ -1123,21 +1123,117 @@
             </objects>
             <point key="canvasLocation" x="1972.3076923076922" y="186.96682464454975"/>
         </scene>
-        <!--About Us-->
+        <!--About Me-->
         <scene sceneID="1wG-Oj-iLr">
             <objects>
                 <viewController id="pr2-C0-UpZ" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qol-AY-9Qz">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pdf-pG-Anq" customClass="CustomView" customModule="flashcards" customModuleProvider="target">
+                                <rect key="frame" x="80" y="127" width="230" height="230"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="My Image" translatesAutoresizingMaskIntoConstraints="NO" id="PVx-7W-eFg" customClass="CustomImageView" customModule="flashcards" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="230" height="230"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="115"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="PVx-7W-eFg" firstAttribute="centerY" secondItem="Pdf-pG-Anq" secondAttribute="centerY" id="819-7o-T8G"/>
+                                    <constraint firstItem="PVx-7W-eFg" firstAttribute="centerX" secondItem="Pdf-pG-Anq" secondAttribute="centerX" id="Laf-ww-uoZ"/>
+                                    <constraint firstItem="PVx-7W-eFg" firstAttribute="centerX" secondItem="Pdf-pG-Anq" secondAttribute="centerX" id="WC6-x7-hRW"/>
+                                    <constraint firstItem="PVx-7W-eFg" firstAttribute="height" secondItem="Pdf-pG-Anq" secondAttribute="height" id="fVa-W8-kzO"/>
+                                    <constraint firstItem="PVx-7W-eFg" firstAttribute="width" secondItem="Pdf-pG-Anq" secondAttribute="width" id="vQg-zX-tDQ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="115"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" name="Shadow"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffset">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Danuja Jayasuriya" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDm-Gl-WOU">
+                                <rect key="frame" x="20" y="397" width="350" height="34"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Software Engineering UG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5tH-WS-jCO">
+                                <rect key="frame" x="20" y="439" width="350" height="16"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                <color key="textColor" systemColor="systemGray2Color"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPF-6d-NWC">
+                                <rect key="frame" x="40" y="484.99999999999994" width="310" height="142.33333333333331"/>
+                                <string key="text">I'm Danuja Jayasuriya, a final year undergraduate at SLIIT. This flashcard app was developed as part of my Mobile Application Design and Development module, serving as the first assessment for the course.
+
+
+
+
+
+</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="todanuja01@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZdV-mb-pA8">
+                                <rect key="frame" x="20" y="637.33333333333337" width="350" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+94 76 4510 860" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9Q-wr-Koh">
+                                <rect key="frame" x="20" y="668.33333333333337" width="350" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="HMu-Py-A2U"/>
                         <color key="backgroundColor" name="PrimaryBackground"/>
+                        <constraints>
+                            <constraint firstItem="5tH-WS-jCO" firstAttribute="leading" secondItem="HMu-Py-A2U" secondAttribute="leading" constant="20" id="03O-UI-Lfe"/>
+                            <constraint firstItem="wPF-6d-NWC" firstAttribute="leading" secondItem="HMu-Py-A2U" secondAttribute="leading" constant="40" id="466-JE-Ogz"/>
+                            <constraint firstItem="HMu-Py-A2U" firstAttribute="trailing" secondItem="ZdV-mb-pA8" secondAttribute="trailing" constant="20" id="BfB-EV-9vR"/>
+                            <constraint firstItem="wPF-6d-NWC" firstAttribute="top" secondItem="5tH-WS-jCO" secondAttribute="bottom" constant="30" id="EWh-HH-4EA"/>
+                            <constraint firstItem="HMu-Py-A2U" firstAttribute="trailing" secondItem="YDm-Gl-WOU" secondAttribute="trailing" constant="20" id="KFV-mB-rbx"/>
+                            <constraint firstItem="Pdf-pG-Anq" firstAttribute="top" secondItem="HMu-Py-A2U" secondAttribute="top" constant="80" id="Kp8-v8-4S3"/>
+                            <constraint firstAttribute="trailing" secondItem="wPF-6d-NWC" secondAttribute="trailing" constant="40" id="Qci-mV-fu6"/>
+                            <constraint firstItem="Pdf-pG-Anq" firstAttribute="centerX" secondItem="qol-AY-9Qz" secondAttribute="centerX" id="UCS-OG-S5K"/>
+                            <constraint firstItem="ZdV-mb-pA8" firstAttribute="leading" secondItem="HMu-Py-A2U" secondAttribute="leading" constant="20" id="aYy-8q-gYR"/>
+                            <constraint firstItem="S9Q-wr-Koh" firstAttribute="top" secondItem="ZdV-mb-pA8" secondAttribute="bottom" constant="10" id="alj-bX-CYW"/>
+                            <constraint firstItem="HMu-Py-A2U" firstAttribute="trailing" secondItem="S9Q-wr-Koh" secondAttribute="trailing" constant="20" id="h3K-tD-lgi"/>
+                            <constraint firstItem="5tH-WS-jCO" firstAttribute="top" secondItem="YDm-Gl-WOU" secondAttribute="bottom" constant="8" id="mOX-93-YPc"/>
+                            <constraint firstItem="HMu-Py-A2U" firstAttribute="trailing" secondItem="5tH-WS-jCO" secondAttribute="trailing" constant="20" id="qaz-0H-WbU"/>
+                            <constraint firstItem="YDm-Gl-WOU" firstAttribute="leading" secondItem="HMu-Py-A2U" secondAttribute="leading" constant="20" id="rgY-GC-kWW"/>
+                            <constraint firstItem="YDm-Gl-WOU" firstAttribute="top" secondItem="Pdf-pG-Anq" secondAttribute="bottom" constant="40" id="sK2-Rk-Fch"/>
+                            <constraint firstItem="ZdV-mb-pA8" firstAttribute="top" secondItem="wPF-6d-NWC" secondAttribute="bottom" constant="10" id="uu7-Y7-FA9"/>
+                            <constraint firstItem="S9Q-wr-Koh" firstAttribute="leading" secondItem="HMu-Py-A2U" secondAttribute="leading" constant="20" id="xip-a0-zha"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="About Us" image="person.crop.circle.fill" catalog="system" id="uAa-Sc-0ZH"/>
+                    <tabBarItem key="tabBarItem" title="About Me" image="person.crop.circle.fill" catalog="system" id="uAa-Sc-0ZH"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9fX-Lq-uxB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="111" y="554"/>
+            <point key="canvasLocation" x="110.76923076923076" y="553.79146919431275"/>
         </scene>
         <!--Add New Deck View Controller-->
         <scene sceneID="7vk-UL-Xjh">
@@ -1439,6 +1535,8 @@
                     <connections>
                         <outlet property="backTextView" destination="8rg-V6-v2k" id="Jak-od-iBg"/>
                         <outlet property="frontTextView" destination="WaI-5F-Q5P" id="kie-R6-flD"/>
+                        <outlet property="mainButton" destination="xum-5L-Nad" id="lnK-YE-Hms"/>
+                        <outlet property="saveNdCloseBtn" destination="NZJ-uv-Sq4" id="Non-mZ-xk2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lZJ-Vt-hss" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1470,6 +1568,9 @@
         <designable name="0is-gX-ff2">
             <size key="intrinsicContentSize" width="61.333333333333336" height="34.333333333333336"/>
         </designable>
+        <designable name="PVx-7W-eFg">
+            <size key="intrinsicContentSize" width="230" height="230"/>
+        </designable>
         <designable name="oZh-bx-HIU">
             <size key="intrinsicContentSize" width="91.666666666666671" height="34.333333333333336"/>
         </designable>
@@ -1482,13 +1583,14 @@
     </designables>
     <inferredMetricsTieBreakers>
         <segue reference="CGu-BV-3uk"/>
-        <segue reference="Bbc-5x-5dp"/>
+        <segue reference="pa4-Qx-VTK"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Background01" width="330" height="464.5"/>
         <image name="Background02" width="195" height="173"/>
         <image name="Background03" width="195" height="334"/>
         <image name="FlashcardIcon" width="40" height="40"/>
+        <image name="My Image" width="230" height="230"/>
         <image name="checkmark.seal.fill" catalog="system" width="128" height="124"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
         <image name="rectangle.stack.fill" catalog="system" width="126" height="128"/>
@@ -1520,13 +1622,16 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
